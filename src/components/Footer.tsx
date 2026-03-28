@@ -50,7 +50,7 @@ export default function Footer() {
           <div>
             <h4 style={{ fontFamily: "var(--font-ui)", fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold-amber)", marginBottom: 20, paddingBottom: 10, borderBottom: "1px solid rgba(212,175,55,0.2)" }}>Navigation</h4>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-              {[{label:"Home",href:"#home"},{label:"Services",href:"#services"},{label:"About",href:"#about"},{label:"Testimonials",href:"#testimonials"},{label:"Contact",href:"#contact"}].map((link) => (
+              {[{label:"Home",href:"/"},{label:"Services",href:"/services"},{label:"About",href:"/about"},{label:"Testimonials",href:"/testimonials"},{label:"Contact",href:"/contact"}].map((link) => (
                 <li key={link.label}>
                   <a href={link.href}
                     style={{ fontFamily: "var(--font-ui)", fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 0.2s", display: "flex", alignItems: "center", gap: 8 }}

@@ -353,4 +353,22 @@ body {
   .wa-float, .call-float { width: 52px; height: 52px; }
   .wa-float { bottom: 22px; right: 22px; }
   .call-float { bottom: 88px; right: 22px; }
+
+  /* Reduce section padding on mobile */
+  .section-mobile-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+
+  /* Buttons full-width on very small screens */
+  .btn-gold, .btn-wa, .btn-outline-gold { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Ornament separator centering */
+  .ornament-sep::before, .ornament-sep::after { width: 48px; }
+
+  /* Section label smaller */
+  .section-label { font-size: 0.62rem; padding: 4px 14px; }
+}
+
+@media (max-width: 480px) {
+  /* Stack CTA buttons */
+  .cta-btns { flex-direction: column !important; }
+  .cta-btns a { width: 100%; justify-content: center; }
 }

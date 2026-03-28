@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "start" }} className="why-grid">
           {/* Features */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }} className="why-features">
             {features.map((f) => (
               <div key={f.title} className="mystical-card" style={{ padding: "24px 20px", borderRadius: 14, background: "white" }}>
                 <div style={{ width: 50, height: 50, borderRadius: 12, background: "rgba(255,215,0,0.12)", border: "1px solid rgba(212,175,55,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.6rem", marginBottom: 14 }}>{f.icon}</div>
@@ -80,6 +80,7 @@ export default function WhyChooseUs() {
 
       <style>{`
         @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }
+        @media (max-width: 500px) { .why-features { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   );

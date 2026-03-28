@@ -15,11 +15,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "About", href: "/about" },
+    { label: "Testimonials", href: "/testimonials" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -37,25 +37,17 @@ export default function Navbar() {
       }}
     >
       {/* Top gold strip */}
-      <div style={{
-        position: "absolute", top: 0, left: 0, right: 0, height: 3,
-        background: "linear-gradient(90deg, var(--gold-deep), var(--gold-glow), var(--gold-amber), var(--gold-glow), var(--gold-deep))",
-      }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, var(--gold-deep), var(--gold-glow), var(--gold-amber), var(--gold-glow), var(--gold-deep))" }} />
 
-      <div style={{
-        maxWidth: 1200, margin: "0 auto", padding: "0 24px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-      }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
-        <a href="#home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
+        <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <circle cx="18" cy="18" r="9" fill="url(#navSunGrad)" />
             {[0,45,90,135,180,225,270,315].map((deg, i) => (
               <line key={i}
-                x1={18 + Math.cos(deg * Math.PI / 180) * 12}
-                y1={18 + Math.sin(deg * Math.PI / 180) * 12}
-                x2={18 + Math.cos(deg * Math.PI / 180) * 16}
-                y2={18 + Math.sin(deg * Math.PI / 180) * 16}
+                x1={18 + Math.cos(deg * Math.PI / 180) * 12} y1={18 + Math.sin(deg * Math.PI / 180) * 12}
+                x2={18 + Math.cos(deg * Math.PI / 180) * 16} y2={18 + Math.sin(deg * Math.PI / 180) * 16}
                 stroke="#D4AF37" strokeWidth="2" strokeLinecap="round"
               />
             ))}
@@ -67,7 +59,7 @@ export default function Navbar() {
             </defs>
           </svg>
           <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-            <span style={{ fontFamily: "var(--font-display)", fontSize: "clamp(0.9rem, 2.2vw, 1.15rem)", fontWeight: 900, letterSpacing: "0.12em" }} className="gold-shimmer">
+            <span style={{ fontFamily: "var(--font-display)", fontSize: "clamp(0.85rem, 2.2vw, 1.1rem)", fontWeight: 900, letterSpacing: "0.12em" }} className="gold-shimmer">
               SHRI RAJYOG
             </span>
             <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "var(--text-muted)", textTransform: "uppercase", marginTop: 3 }}>
@@ -77,7 +69,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex" style={{ display: "flex", gap: 32, alignItems: "center" }}>
+        <nav className="navbar-desktop" style={{ display: "flex", gap: 28, alignItems: "center" }}>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href}
               style={{ fontFamily: "var(--font-heading)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-secondary)", textDecoration: "none", transition: "color 0.3s" }}
@@ -94,7 +86,10 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Hamburger */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}
+        <button
+          className="navbar-mobile-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
           style={{ background: "none", border: "1px solid rgba(212,175,55,0.5)", borderRadius: 6, padding: "8px 12px", cursor: "pointer", display: "flex", flexDirection: "column", gap: 5 }}>
           {[0, 1, 2].map((i) => (
             <span key={i} style={{
@@ -105,21 +100,37 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div style={{ background: "rgba(255,255,255,0.99)", borderTop: "1px solid rgba(212,175,55,0.3)", padding: "24px", display: "flex", flexDirection: "column", gap: 20 }}>
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-secondary)", textDecoration: "none" }}>
-              {link.label}
-            </a>
-          ))}
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-gold"
-            style={{ padding: "12px 24px", fontSize: "0.8rem", borderRadius: 6, textAlign: "center" }}>
-            Free Consultation
+      {/* Mobile Menu Dropdown */}
+      <div className="navbar-mobile-menu" style={{ display: menuOpen ? "flex" : "none", background: "rgba(255,255,255,0.99)", borderTop: "1px solid rgba(212,175,55,0.3)", padding: "24px", flexDirection: "column", gap: 20 }}>
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
+            style={{ fontFamily: "var(--font-heading)", fontSize: "0.95rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-secondary)", textDecoration: "none" }}>
+            {link.label}
+          </a>
+        ))}
+        <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-gold"
+          style={{ padding: "12px 24px", fontSize: "0.8rem", borderRadius: 6, textAlign: "center", justifyContent: "center" }}>
+          Free Consultation
+        </a>
+        <div style={{ display: "flex", gap: 12 }}>
+          <a href={`tel:${PHONE}`} style={{ flex: 1, textAlign: "center", padding: "10px", borderRadius: 8, background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)", fontFamily: "var(--font-ui)", fontSize: "0.8rem", fontWeight: 700, color: "var(--gold-deep)", textDecoration: "none" }}>
+            📞 Call Now
+          </a>
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textAlign: "center", padding: "10px", borderRadius: 8, background: "#25D366", fontFamily: "var(--font-ui)", fontSize: "0.8rem", fontWeight: 700, color: "white", textDecoration: "none" }}>
+            💬 WhatsApp
           </a>
         </div>
-      )}
+      </div>
+
+      <style>{`
+        @media (min-width: 769px) {
+          .navbar-mobile-btn { display: none !important; }
+          .navbar-mobile-menu { display: none !important; }
+        }
+        @media (max-width: 768px) {
+          .navbar-desktop { display: none !important; }
+        }
+      `}</style>
     </header>
   );
 }
