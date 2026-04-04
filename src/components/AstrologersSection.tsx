@@ -1,5 +1,5 @@
 "use client";
-const PHONE = "+917021932472";
+const PHONE = "+919737168423";
 const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 const astrologers = [
@@ -134,7 +134,7 @@ export default function AstrologersSection() {
                 letterSpacing: "0.05em",
               }}
             >
-              Shri Rajyog Ji
+              Vikram Bhai Joshi
             </h3>
             <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.8rem", color: "rgba(26,14,0,0.7)", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: 24 }}>
               Chief Astrologer

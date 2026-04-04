@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 
 export const metadata: Metadata = {
-  title: "Testimonials | Shri Rajyog Astrologer — Real Stories, Real Results",
-  description: "Read real testimonials from thousands of satisfied clients of Shri Rajyog Ji. Love back, marriage solutions, career growth — see what people are saying.",
+  title: "Testimonials | Vikram Astrologer — Real Stories, Real Results",
+  description: "Read real testimonials from 90,000+ satisfied clients of Vikram Bhai Joshi. Love back, marriage solutions, career growth, black magic removal — see what people are saying.",
 };
 
 export default function TestimonialsPage() {
@@ -24,7 +24,7 @@ export default function TestimonialsPage() {
             Real People, <span className="gold-shimmer">Real Transformations</span>
           </h1>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", color: "var(--text-secondary)", maxWidth: 540, margin: "16px auto 0", lineHeight: 1.8 }}>
-            Over 10,000 lives transformed. Here are some of the real stories shared by our clients.
+            Over 90,000 consultations completed. Here are some of the real stories shared by our clients across India, Europe, Africa and Asia Pacific.
           </p>
         </div>
         <StatsSection />

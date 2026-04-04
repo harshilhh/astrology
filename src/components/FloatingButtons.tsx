@@ -1,4 +1,4 @@
-const PHONE = "+917021932472";
+const PHONE = "+919737168423";
 const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 export default function FloatingButtons() {

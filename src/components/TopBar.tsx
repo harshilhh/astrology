@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const PHONE1 = "+919068311666";
-const PHONE2 = "+917021932472";
+const PHONE2 = "+919737168423";
 const EMAIL = "shrirajyog@gmail.com";
 const WA_LINK = `https://wa.me/${PHONE2.replace(/\D/g, "")}`;
 

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const PHONE = "+917021932472";
+const PHONE = "+919737168423";
 const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 const slides = [
@@ -10,7 +10,7 @@ const slides = [
     bg: "linear-gradient(120deg, #1a0e00 0%, #3d2200 40%, #7a4800 100%)",
     badge: "✦ 20+ Years of Vedic Wisdom",
     heading: "Find Your Path\nWith Ancient\nAstrology",
-    sub: "Shri Rajyog Ji — India's Trusted Love & Vedic Astrology Expert",
+    sub: "Vikram Bhai Joshi — Best Ambaji Upasak & Vedic Astrology Expert",
     cta1: "📞 Free Consultation",
     cta2: "💬 WhatsApp Now",
     accent: "#FFD700",
@@ -226,7 +226,7 @@ export default function HeroCarousel() {
             >
               <Image
                 src="/hero-banner.jpg"
-                alt="Shri Rajyog Astrologer"
+                alt="Vikram Bhai Joshi — Vedic Astrologer"
                 width={480}
                 height={400}
                 style={{ width: "100%", height: "auto", display: "block" }}
