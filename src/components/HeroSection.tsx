@@ -386,11 +386,6 @@ export default function HeroSection() {
           width: 100%; height: 100%;
           object-fit: cover;
           display: block;
-          transform: scale(1);
-          transition: transform 4s ease;
-        }
-        .carousel-slide.active .carousel-bg {
-          transform: scale(1.06);
         }
         .carousel-overlay {
           position: absolute; inset: 0;

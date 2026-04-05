@@ -53,15 +53,26 @@ export default function LoveMarriageSolutionPage() {
     <>
       <Navbar />
       <main style={{ paddingTop: 80 }}>
-        <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(232,86,42,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
-          <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
-            <span className="gold-shimmer">Love Marriage</span> Problem Solution
-          </h1>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", color: "var(--text-secondary)", maxWidth: 600, margin: "16px auto 0", lineHeight: 1.8 }}>
-            Specialized assistance for couples facing relationship obstacles. 25+ years of experience in love marriage solutions by Vikram Bhai Joshi — Best Ambaji Upasak.
-          </p>
+        {/* Hero Banner */}
+        <div className="lms-hero">
+          <img src="/relationship-dispute.png" alt="Love Marriage Solution" className="lms-hero-img" />
+          <div className="lms-hero-overlay" />
+          <div className="lms-hero-content">
+            <div className="lms-hero-label">
+              <span className="lms-hero-dot" />
+              Vedic Love & Marriage Solutions
+            </div>
+            <h1 className="lms-hero-title">
+              <span className="lms-hero-line">Love Marriage</span>
+              <span className="lms-hero-line lms-hero-line--accent"><em>Problem Solution</em></span>
+            </h1>
+            <p className="lms-hero-sub">
+              Specialized assistance for couples facing relationship obstacles. 25+ years of experience by Vikram Bhai Joshi — Best Ambaji Upasak.
+            </p>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="lms-hero-btn">
+              Book Free Consultation
+            </a>
+          </div>
         </div>
 
         <section style={{ background: "var(--bg-white)", padding: "80px 24px" }}>
@@ -132,7 +143,102 @@ export default function LoveMarriageSolutionPage() {
       </main>
       <Footer />
       <FloatingButtons />
-      <style>{`@media (max-width: 768px) { .service-detail-grid { grid-template-columns: 1fr !important; gap: 24px !important; } }`}</style>
+      <style>{`
+        .lms-hero {
+          position: relative;
+          width: 100%;
+          height: 420px;
+          overflow: hidden;
+        }
+        .lms-hero-img {
+          width: 100%; height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .lms-hero-overlay {
+          position: absolute; inset: 0;
+          background:
+            linear-gradient(90deg, rgba(15,5,2,0.88) 0%, rgba(15,5,2,0.6) 38%, rgba(15,5,2,0.18) 62%, transparent 100%),
+            linear-gradient(to top, rgba(15,5,2,0.5) 0%, transparent 35%);
+        }
+        .lms-hero-content {
+          position: absolute; inset: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 60px;
+          max-width: 680px;
+        }
+        .lms-hero-label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: var(--font-ui);
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: #F5D6A8;
+          margin-bottom: 18px;
+        }
+        .lms-hero-dot {
+          width: 7px; height: 7px;
+          border-radius: 50%;
+          background: #E8562A;
+          box-shadow: 0 0 8px rgba(232,86,42,0.6);
+        }
+        .lms-hero-title {
+          margin: 0;
+          line-height: 1.1;
+        }
+        .lms-hero-line {
+          display: block;
+          font-family: var(--font-display);
+          font-size: clamp(1.8rem, 4.5vw, 3rem);
+          font-weight: 900;
+          letter-spacing: 0.05em;
+          color: #FFF5EB;
+        }
+        .lms-hero-line--accent em {
+          font-style: italic;
+          color: #F0A56C;
+        }
+        .lms-hero-sub {
+          font-family: var(--font-body);
+          font-size: clamp(0.88rem, 1.8vw, 1rem);
+          color: rgba(255,245,235,0.75);
+          line-height: 1.75;
+          margin: 18px 0 28px;
+          max-width: 480px;
+        }
+        .lms-hero-btn {
+          display: inline-block;
+          width: fit-content;
+          font-family: var(--font-ui);
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #fff;
+          background: #E8562A;
+          padding: 14px 36px;
+          text-decoration: none;
+          transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .lms-hero-btn:hover {
+          background: #D14A22;
+          transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+          .lms-hero { height: 320px; }
+          .lms-hero-content { padding: 0 28px; }
+          .service-detail-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+        }
+        @media (max-width: 480px) {
+          .lms-hero { height: 280px; }
+          .lms-hero-content { padding: 0 20px; }
+        }
+      `}</style>
     </>
   );
 }
