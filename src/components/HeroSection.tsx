@@ -10,51 +10,6 @@ const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 /* ── Carousel slides ── */
 const slides = [
   {
-    img: "/hero-carousel-1.jpg",
-    label: "Vedic Astrology",
-    headline: "Discover Your Cosmic Path",
-    sub: "Ancient wisdom for modern life",
-    heroLine1: "Discover Your",
-    heroLine2: "Cosmic Path",
-    heroTag: "Ancient Vedic wisdom to guide your life's journey with clarity and purpose.",
-  },
-  {
-    img: "/zodiac-signs-inside-of-horoscope-circle-astrology-in-the-sky-with-many-stars-and-moons-astrology-and-horoscopes-concept-photo.jpg",
-    label: "Kundali Reading",
-    headline: "Unlock Your Birth Chart",
-    sub: "Personalised Vedic analysis",
-    heroLine1: "Unlock Your",
-    heroLine2: "Birth Chart",
-    heroTag: "Personalised Kundali analysis revealing your destiny, strengths and hidden potential.",
-  },
-  {
-    img: "/woman-holding-a-astrology-book-astrological-wheel-projection-choose-a-zodiac-sign-astrology-esoteric-concept-photo.jpg",
-    label: "Love & Marriage",
-    headline: "Find Your Perfect Match",
-    sub: "Kundali matching & relationship guidance",
-    heroLine1: "Find Your",
-    heroLine2: "Perfect Match",
-    heroTag: "Sacred Kundali matching and expert love problem solutions for lasting happiness.",
-  },
-  {
-    img: "/astrology-book-zodiac-signs-shining-light-hands-holding-open-154355031.webp",
-    label: "Black Magic Removal",
-    headline: "Protection & Spiritual Healing",
-    sub: "25+ years of proven Vedic remedies",
-    heroLine1: "Protection &",
-    heroLine2: "Spiritual Healing",
-    heroTag: "Powerful Vedic remedies and divine protection from negative energies and black magic.",
-  },
-  {
-    img: "/money-problem.jpg",
-    label: "Financial Astrology",
-    headline: "Solve Money Problems",
-    sub: "Vedic remedies for wealth & prosperity",
-    heroLine1: "Overcome Your",
-    heroLine2: "Money Problems",
-    heroTag: "Astrological guidance and proven Vedic remedies to unlock financial prosperity and abundance.",
-  },
-  {
     img: "/couple-dispute.png",
     label: "Husband-Wife Dispute",
     headline: "Resolve Relationship Conflicts",
@@ -71,6 +26,15 @@ const slides = [
     heroLine1: "Child &",
     heroLine2: "Pregnancy Solutions",
     heroTag: "Divine Vedic remedies and astrological guidance to bless your life with the joy of parenthood.",
+  },
+  {
+    img: "/business-problem.png",
+    label: "Business Problems",
+    headline: "Overcome Business Challenges",
+    sub: "Astrological solutions for business success",
+    heroLine1: "Solve Your",
+    heroLine2: "Business Problems",
+    heroTag: "Expert Vedic guidance to overcome business obstacles and achieve lasting success and growth.",
   },
 ];
 
@@ -140,20 +104,18 @@ function HeroCarousel() {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = (idx: number) => {
-    if (animating) return;
-    setAnimating(true);
     setCurrent(idx);
-    setTimeout(() => setAnimating(false), 700);
   };
 
   const next = () => goTo((current + 1) % slides.length);
   const prev = () => goTo((current - 1 + slides.length) % slides.length);
 
   useEffect(() => {
-    timerRef.current = setInterval(next, 5000);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4000);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [current]);
+  }, []);
 
   return (
     <div className="hero-carousel">
@@ -424,6 +386,11 @@ export default function HeroSection() {
           width: 100%; height: 100%;
           object-fit: cover;
           display: block;
+          transform: scale(1);
+          transition: transform 4s ease;
+        }
+        .carousel-slide.active .carousel-bg {
+          transform: scale(1.06);
         }
         .carousel-overlay {
           position: absolute; inset: 0;
