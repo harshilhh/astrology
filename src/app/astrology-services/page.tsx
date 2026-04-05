@@ -48,7 +48,7 @@ export default function AstrologyServicesPage() {
       <main style={{ paddingTop: 80 }}>
         {/* Page header */}
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(255,215,0,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.08) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Astrology Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">26 Specialized</span> Astrology Services
@@ -71,23 +71,23 @@ export default function AstrologyServicesPage() {
                   className="mystical-card"
                   style={{ display: "flex", gap: 18, padding: "24px", borderRadius: 0, textDecoration: "none", background: "var(--card-bg)", alignItems: "flex-start" }}
                 >
-                  <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(255,215,0,0.12)", border: "1px solid rgba(212,175,55,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", flexShrink: 0 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(165,32,32,0.08)", border: "1px solid rgba(165,32,32,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", flexShrink: 0 }}>
                     {svc.icon}
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
-                      <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.6rem", fontWeight: 700, color: "var(--gold-deep)", opacity: 0.6 }}>{String(i + 1).padStart(2, "0")}</span>
-                      <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.04em", color: "var(--text-primary)" }}>{svc.title}</h3>
+                      <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.74rem", fontWeight: 700, color: "var(--gold-deep)", opacity: 0.6 }}>{String(i + 1).padStart(2, "0")}</span>
+                      <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, letterSpacing: "0.04em", color: "var(--text-primary)" }}>{svc.title}</h3>
                     </div>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{svc.desc}</p>
-                    <div style={{ marginTop: 12, fontFamily: "var(--font-ui)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold-deep)" }}>Learn More →</div>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{svc.desc}</p>
+                    <div style={{ marginTop: 12, fontFamily: "var(--font-ui)", fontSize: "0.84rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold-deep)" }}>Learn More →</div>
                   </div>
                 </a>
               ))}
             </div>
 
             {/* CTA box */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.3)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)", padding: "56px 32px" }}>
               <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Get A Quote</span>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.6rem, 4vw, 2.6rem)", fontWeight: 900, letterSpacing: "0.04em", color: "var(--text-primary)", marginBottom: 16 }}>
                 Book Your Consultation Today
@@ -96,8 +96,8 @@ export default function AstrologyServicesPage() {
                 The best Ambaji worshipper, your faithful companion in astrology. Available globally — call, WhatsApp or email anytime.
               </p>
               <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>📞 Call Now — FREE</a>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>💬 WhatsApp Now</a>
+                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>📞 Call Now — FREE</a>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>💬 WhatsApp Now</a>
               </div>
             </div>
           </div>

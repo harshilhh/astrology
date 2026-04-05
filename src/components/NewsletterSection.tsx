@@ -26,7 +26,7 @@ export default function NewsletterSection() {
       {/* Background decoration */}
       <div style={{
         position: "absolute", inset: 0,
-        background: "radial-gradient(ellipse at 50% 50%, rgba(255,215,0,0.12) 0%, transparent 65%)",
+        background: "radial-gradient(ellipse at 50% 50%, rgba(165,32,32,0.08) 0%, transparent 65%)",
         pointerEvents: "none",
       }} />
 
@@ -38,13 +38,13 @@ export default function NewsletterSection() {
             height: 72,
             borderRadius: "50%",
             background: "white",
-            border: "2px solid rgba(212,175,55,0.4)",
+            border: "2px solid rgba(165,32,32,0.35)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontSize: "2rem",
             margin: "0 auto 24px",
-            boxShadow: "0 6px 24px rgba(180,140,0,0.15)",
+            boxShadow: "0 6px 24px rgba(165,32,32,0.12)",
           }}
         >
           📰
@@ -80,14 +80,14 @@ export default function NewsletterSection() {
           <div
             style={{
               background: "white",
-              border: "1px solid rgba(212,175,55,0.4)",
+              border: "1px solid rgba(165,32,32,0.35)",
               borderRadius: 12,
               padding: "20px 32px",
               fontFamily: "var(--font-ui)",
               fontSize: "1rem",
               fontWeight: 700,
               color: "var(--gold-deep)",
-              boxShadow: "0 4px 20px rgba(180,140,0,0.12)",
+              boxShadow: "0 4px 20px rgba(165,32,32,0.1)",
             }}
           >
             ✅ Thank you! You have been subscribed to our newsletter.
@@ -100,10 +100,10 @@ export default function NewsletterSection() {
               gap: 0,
               maxWidth: 480,
               margin: "0 auto",
-              boxShadow: "0 8px 32px rgba(180,140,0,0.15)",
+              boxShadow: "0 8px 32px rgba(165,32,32,0.12)",
               borderRadius: 10,
               overflow: "hidden",
-              border: "1px solid rgba(212,175,55,0.3)",
+              border: "1px solid rgba(165,32,32,0.25)",
             }}
           >
             <input
@@ -118,7 +118,7 @@ export default function NewsletterSection() {
                 border: "none",
                 outline: "none",
                 fontFamily: "var(--font-ui)",
-                fontSize: "0.9rem",
+                fontSize: "1.02rem",
                 color: "var(--text-primary)",
                 background: "white",
               }}
@@ -128,7 +128,7 @@ export default function NewsletterSection() {
               className="btn-gold"
               style={{
                 padding: "15px 28px",
-                fontSize: "0.88rem",
+                fontSize: "1rem",
                 borderRadius: 0,
                 flexShrink: 0,
                 letterSpacing: "0.08em",
@@ -142,7 +142,7 @@ export default function NewsletterSection() {
         <p
           style={{
             fontFamily: "var(--font-ui)",
-            fontSize: "0.75rem",
+            fontSize: "1rem",
             color: "var(--text-muted)",
             marginTop: 16,
           }}

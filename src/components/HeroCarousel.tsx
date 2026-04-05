@@ -7,40 +7,40 @@ const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 const slides = [
   {
-    bg: "linear-gradient(120deg, #1a0e00 0%, #3d2200 40%, #7a4800 100%)",
+    bg: "linear-gradient(120deg, #F5E5E5 0%, #EED8D8 40%, #F9EFEF 100%)",
     badge: "✦ 20+ Years of Vedic Wisdom",
     heading: "Find Your Path\nWith Ancient\nAstrology",
     sub: "Vikram Bhai Joshi — Best Ambaji Upasak & Vedic Astrology Expert",
     cta1: "📞 Free Consultation",
     cta2: "💬 WhatsApp Now",
-    accent: "#FFD700",
+    accent: "#A52020",
   },
   {
-    bg: "linear-gradient(120deg, #0a1a2e 0%, #1a3a5c 40%, #0d2b45 100%)",
+    bg: "linear-gradient(120deg, #F9EFEF 0%, #F2C8C8 40%, #F5E5E5 100%)",
     badge: "✦ 10,000+ Happy Clients",
     heading: "Love Problem\nSolution\nSpecialist",
     sub: "Instant solutions for love, marriage, career & spiritual healing. 100% confidential.",
     cta1: "📞 Call Now — Free",
     cta2: "💬 Chat on WhatsApp",
-    accent: "#FFD700",
+    accent: "#8B1A1A",
   },
   {
-    bg: "linear-gradient(120deg, #1a0a14 0%, #3d1428 40%, #6b1a40 100%)",
+    bg: "linear-gradient(120deg, #FDF7F7 0%, #EED8D8 40%, #F2C8C8 100%)",
     badge: "✦ Available 24/7",
     heading: "Transform Your\nLife With\nVedic Remedies",
     sub: "Expert guidance for all life challenges — love, family, career, black magic removal.",
     cta1: "📞 Get Solution Now",
     cta2: "💬 WhatsApp Us",
-    accent: "#FFD700",
+    accent: "#B52424",
   },
   {
-    bg: "linear-gradient(120deg, #0e1a0a 0%, #1e3d14 40%, #2d5c1e 100%)",
+    bg: "linear-gradient(120deg, #F5E5E5 0%, #F9EFEF 40%, #FDF7F7 100%)",
     badge: "✦ Certified Jyotish Acharya",
     heading: "Horoscope &\nKundli Reading\nExpert",
     sub: "Personalized birth chart analysis, kundli matching, and life path predictions.",
     cta1: "📞 Book Consultation",
     cta2: "💬 WhatsApp Now",
-    accent: "#FFD700",
+    accent: "#A52020",
   },
 ];
 
@@ -94,20 +94,20 @@ export default function HeroCarousel() {
       >
         {/* Decorative SVG elements */}
         <svg
-          style={{ position: "absolute", right: 0, top: 0, height: "100%", width: "50%", opacity: 0.06, pointerEvents: "none" }}
+          style={{ position: "absolute", right: 0, top: 0, height: "100%", width: "50%", opacity: 0.08, pointerEvents: "none" }}
           viewBox="0 0 400 600" fill="none"
         >
-          <circle cx="300" cy="300" r="250" stroke="#FFD700" strokeWidth="1" />
-          <circle cx="300" cy="300" r="200" stroke="#FFD700" strokeWidth="0.5" strokeDasharray="6 4" />
-          <circle cx="300" cy="300" r="150" stroke="#FFD700" strokeWidth="1" />
-          <circle cx="300" cy="300" r="80" fill="rgba(255,215,0,0.15)" />
+          <circle cx="300" cy="300" r="250" stroke="#A52020" strokeWidth="1" />
+          <circle cx="300" cy="300" r="200" stroke="#A52020" strokeWidth="0.5" strokeDasharray="6 4" />
+          <circle cx="300" cy="300" r="150" stroke="#A52020" strokeWidth="1" />
+          <circle cx="300" cy="300" r="80" fill="rgba(165,32,32,0.12)" />
           {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => (
             <line key={i}
               x1={300 + Math.cos(deg*Math.PI/180)*80}
               y1={300 + Math.sin(deg*Math.PI/180)*80}
               x2={300 + Math.cos(deg*Math.PI/180)*250}
               y2={300 + Math.sin(deg*Math.PI/180)*250}
-              stroke="#FFD700" strokeWidth="0.5" opacity="0.5"
+              stroke="#A52020" strokeWidth="0.5" opacity="0.5"
             />
           ))}
         </svg>
@@ -134,7 +134,7 @@ export default function HeroCarousel() {
                 style={{
                   display: "inline-block",
                   fontFamily: "var(--font-ui)",
-                  fontSize: "0.68rem",
+                  fontSize: "0.94rem",
                   fontWeight: 700,
                   letterSpacing: "0.28em",
                   textTransform: "uppercase",
@@ -142,7 +142,7 @@ export default function HeroCarousel() {
                   border: `1px solid ${s.accent}50`,
                   borderRadius: 100,
                   padding: "6px 18px",
-                  background: `${s.accent}12`,
+                  background: `${s.accent}10`,
                 }}
               >
                 {s.badge}
@@ -156,7 +156,7 @@ export default function HeroCarousel() {
                 fontWeight: 900,
                 lineHeight: 1.15,
                 letterSpacing: "0.03em",
-                color: "#FFFFFF",
+                color: "#2E1A1A",
                 marginBottom: 20,
                 whiteSpace: "pre-line",
               }}
@@ -173,7 +173,7 @@ export default function HeroCarousel() {
               style={{
                 fontFamily: "var(--font-ui)",
                 fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)",
-                color: "rgba(255,255,255,0.75)",
+                color: "rgba(46,26,26,0.7)",
                 lineHeight: 1.8,
                 marginBottom: 36,
                 maxWidth: 480,
@@ -186,7 +186,7 @@ export default function HeroCarousel() {
               <a
                 href={`tel:${PHONE}`}
                 className="btn-gold"
-                style={{ padding: "15px 32px", borderRadius: 8, fontSize: "0.82rem" }}
+                style={{ padding: "15px 32px", borderRadius: 8, fontSize: "0.94rem" }}
               >
                 {s.cta1}
               </a>
@@ -195,7 +195,7 @@ export default function HeroCarousel() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-wa"
-                style={{ padding: "15px 32px", borderRadius: 8, fontSize: "0.82rem" }}
+                style={{ padding: "15px 32px", borderRadius: 8, fontSize: "0.94rem" }}
               >
                 {s.cta2}
               </a>
@@ -204,14 +204,14 @@ export default function HeroCarousel() {
             {/* Trust badges */}
             <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
               {["🔒 100% Private", "⚡ Instant Reply", "🌙 24/7 Available"].map((t) => (
-                <span key={t} style={{ fontFamily: "var(--font-ui)", fontSize: "0.78rem", color: "rgba(255,255,255,0.55)", fontWeight: 600 }}>
+                <span key={t} style={{ fontFamily: "var(--font-ui)", fontSize: "1.02rem", color: "rgba(46,26,26,0.55)", fontWeight: 600 }}>
                   {t}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Right: Image or SVG illustration */}
+          {/* Right: Image */}
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
             <div
               style={{
@@ -219,7 +219,7 @@ export default function HeroCarousel() {
                 borderRadius: 20,
                 overflow: "hidden",
                 border: `2px solid ${s.accent}40`,
-                boxShadow: `0 20px 60px rgba(0,0,0,0.4), 0 0 40px ${s.accent}20`,
+                boxShadow: `0 20px 60px rgba(0,0,0,0.1), 0 0 40px ${s.accent}20`,
                 maxWidth: 480,
                 width: "100%",
               }}
@@ -234,7 +234,7 @@ export default function HeroCarousel() {
               />
               <div style={{
                 position: "absolute", inset: 0,
-                background: `linear-gradient(135deg, ${s.accent}20, transparent 60%)`,
+                background: `linear-gradient(135deg, ${s.accent}15, transparent 60%)`,
                 pointerEvents: "none",
               }} />
             </div>
@@ -242,7 +242,7 @@ export default function HeroCarousel() {
         </div>
 
         {/* Bottom gradient */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 80, background: "linear-gradient(transparent, rgba(0,0,0,0.3))", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 80, background: "linear-gradient(transparent, rgba(229,245,229,0.4))", pointerEvents: "none" }} />
       </div>
 
       {/* Slide indicators */}
@@ -265,7 +265,7 @@ export default function HeroCarousel() {
               width: i === active ? 32 : 10,
               height: 10,
               borderRadius: 5,
-              background: i === active ? "#FFD700" : "rgba(255,255,255,0.4)",
+              background: i === active ? "#A52020" : "rgba(165,32,32,0.35)",
               border: "none",
               cursor: "pointer",
               transition: "all 0.3s ease",
@@ -291,9 +291,9 @@ export default function HeroCarousel() {
             top: "50%",
             [pos]: 20,
             transform: "translateY(-50%)",
-            background: "rgba(255,215,0,0.15)",
-            border: "1px solid rgba(255,215,0,0.3)",
-            color: "#FFD700",
+            background: "rgba(165,32,32,0.12)",
+            border: "1px solid rgba(165,32,32,0.3)",
+            color: "#A52020",
             width: 44,
             height: 44,
             borderRadius: "50%",
@@ -307,8 +307,8 @@ export default function HeroCarousel() {
             transition: "all 0.2s",
             backdropFilter: "blur(4px)",
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,215,0,0.3)"; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,215,0,0.15)"; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(165,32,32,0.25)"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(165,32,32,0.12)"; }}
         >
           {icon}
         </button>

@@ -18,7 +18,7 @@ export default function TestimonialsPage() {
       <main style={{ paddingTop: 80 }}>
         {/* Page header */}
         <div style={{ background: "var(--bg-white)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(255,215,0,0.10) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.07) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Client Stories</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             Real People, <span className="gold-shimmer">Real Transformations</span>

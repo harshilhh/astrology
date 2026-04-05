@@ -52,11 +52,11 @@ export default function ZodiacSection() {
         {/* Decorative divider */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
           <svg width="320" height="20" viewBox="0 0 320 20" fill="none">
-            <line x1="0" y1="10" x2="130" y2="10" stroke="#D4AF37" strokeWidth="1" opacity="0.5" />
-            <circle cx="145" cy="10" r="4" fill="#D4AF37" />
-            <circle cx="160" cy="10" r="7" fill="#E8A800" opacity="0.9" />
-            <circle cx="175" cy="10" r="4" fill="#D4AF37" />
-            <line x1="190" y1="10" x2="320" y2="10" stroke="#D4AF37" strokeWidth="1" opacity="0.5" />
+            <line x1="0" y1="10" x2="130" y2="10" stroke="#A52020" strokeWidth="1" opacity="0.5" />
+            <circle cx="145" cy="10" r="4" fill="#A52020" />
+            <circle cx="160" cy="10" r="7" fill="#B52424" opacity="0.9" />
+            <circle cx="175" cy="10" r="4" fill="#A52020" />
+            <line x1="190" y1="10" x2="320" y2="10" stroke="#A52020" strokeWidth="1" opacity="0.5" />
           </svg>
         </div>
 
@@ -81,8 +81,8 @@ export default function ZodiacSection() {
                 padding: "20px 12px 16px",
                 borderRadius: 16,
                 background: "white",
-                border: "1px solid rgba(212,175,55,0.2)",
-                boxShadow: "0 2px 12px rgba(180,140,0,0.06)",
+                border: "1px solid rgba(165,32,32,0.18)",
+                boxShadow: "0 2px 12px rgba(165,32,32,0.06)",
                 textDecoration: "none",
                 transition: "all 0.28s ease",
                 cursor: "pointer",
@@ -90,14 +90,14 @@ export default function ZodiacSection() {
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(-6px)";
-                el.style.boxShadow = "0 12px 32px rgba(180,140,0,0.18)";
-                el.style.borderColor = "rgba(212,175,55,0.5)";
+                el.style.boxShadow = "0 12px 32px rgba(165,32,32,0.15)";
+                el.style.borderColor = "rgba(165,32,32,0.45)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(0)";
-                el.style.boxShadow = "0 2px 12px rgba(180,140,0,0.06)";
-                el.style.borderColor = "rgba(212,175,55,0.2)";
+                el.style.boxShadow = "0 2px 12px rgba(165,32,32,0.06)";
+                el.style.borderColor = "rgba(165,32,32,0.18)";
               }}
             >
               {/* Circular icon */}
@@ -122,7 +122,7 @@ export default function ZodiacSection() {
               <div
                 style={{
                   fontFamily: "var(--font-heading)",
-                  fontSize: "0.82rem",
+                  fontSize: "0.94rem",
                   fontWeight: 700,
                   letterSpacing: "0.06em",
                   color: "var(--text-primary)",
@@ -136,7 +136,7 @@ export default function ZodiacSection() {
               <div
                 style={{
                   fontFamily: "var(--font-ui)",
-                  fontSize: "0.66rem",
+                  fontSize: "1.04rem",
                   color: "var(--text-muted)",
                   textAlign: "center",
                   lineHeight: 1.3,

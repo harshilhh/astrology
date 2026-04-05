@@ -44,7 +44,7 @@ export default function BlackMagicRemovalPage() {
       <Navbar />
       <main style={{ paddingTop: 80 }}>
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(255,215,0,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Black Magic</span> Removal
@@ -69,9 +69,9 @@ export default function BlackMagicRemovalPage() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 14 }}>
                 {symptoms.map((s, i) => (
-                  <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "14px 16px", background: i % 2 === 0 ? "var(--bg-light-yellow)" : "white", borderRadius: 0, border: "1px solid rgba(212,175,55,0.2)" }}>
-                    <span style={{ width: 26, height: 26, borderRadius: "50%", background: "rgba(255,215,0,0.15)", border: "1px solid rgba(212,175,55,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-heading)", fontSize: "0.65rem", fontWeight: 700, color: "var(--gold-deep)", flexShrink: 0 }}>{i + 1}</span>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.5 }}>{s}</span>
+                  <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "14px 16px", background: i % 2 === 0 ? "var(--bg-light-yellow)" : "white", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)" }}>
+                    <span style={{ width: 26, height: 26, borderRadius: "50%", background: "rgba(165,32,32,0.15)", border: "1px solid rgba(165,32,32,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--gold-deep)", flexShrink: 0 }}>{i + 1}</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)", lineHeight: 1.5 }}>{s}</span>
                   </div>
                 ))}
               </div>
@@ -89,10 +89,10 @@ export default function BlackMagicRemovalPage() {
                 {lifeEffects.map((e) => (
                   <div key={e.area} className="mystical-card" style={{ padding: "24px", borderRadius: 0, background: "var(--card-bg)" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
-                      <div style={{ width: 44, height: 44, borderRadius: 0, background: "rgba(255,215,0,0.12)", border: "1px solid rgba(212,175,55,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", flexShrink: 0 }}>{e.icon}</div>
+                      <div style={{ width: 44, height: 44, borderRadius: 0, background: "rgba(165,32,32,0.12)", border: "1px solid rgba(165,32,32,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", flexShrink: 0 }}>{e.icon}</div>
                       <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.93rem", fontWeight: 700, color: "var(--text-primary)" }}>{e.area}</h4>
                     </div>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{e.desc}</p>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{e.desc}</p>
                   </div>
                 ))}
               </div>
@@ -100,24 +100,24 @@ export default function BlackMagicRemovalPage() {
 
             {/* Solution approach + CTA */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28, alignItems: "start" }} className="service-detail-grid">
-              <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "36px 28px", border: "1px solid rgba(212,175,55,0.3)" }}>
+              <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "36px 28px", border: "1px solid rgba(165,32,32,0.3)" }}>
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 20 }}>Our Solution Approach</h3>
                 {["Expert consultation to identify presence of black magic","Personalized Vedic remedies based on your situation","Powerful mantra chanting and ritual performance","Yantra-based protection and energy cleansing","Post-removal spiritual protection measures","Complete confidentiality throughout the process"].map((s) => (
-                  <div key={s} style={{ display: "flex", gap: 10, marginBottom: 12, padding: "10px 14px", background: "var(--card-bg)", borderRadius: 8, border: "1px solid rgba(212,175,55,0.2)" }}>
+                  <div key={s} style={{ display: "flex", gap: 10, marginBottom: 12, padding: "10px 14px", background: "var(--card-bg)", borderRadius: 8, border: "1px solid rgba(165,32,32,0.2)" }}>
                     <span style={{ color: "var(--gold-deep)", flexShrink: 0 }}>🛡️</span>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-secondary)" }}>{s}</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)" }}>{s}</span>
                   </div>
                 ))}
               </div>
-              <div style={{ background: "var(--card-bg)", borderRadius: 0, padding: "36px 28px", border: "2px solid rgba(212,175,55,0.35)", boxShadow: "0 8px 32px rgba(180,140,0,0.1)", textAlign: "center" }}>
+              <div style={{ background: "var(--card-bg)", borderRadius: 0, padding: "36px 28px", border: "2px solid rgba(165,32,32,0.35)", boxShadow: "0 8px 32px rgba(120,18,18,0.1)", textAlign: "center" }}>
                 <div style={{ fontSize: "3rem", marginBottom: 16 }}>🔮</div>
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>Get Protection Today</h3>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: 24, lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "1.02rem", color: "var(--text-muted)", marginBottom: 24, lineHeight: 1.7 }}>
                   Don&apos;t suffer in silence. Vikram Bhai Joshi can detect and remove black magic with powerful Vedic remedies.
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "14px 28px", borderRadius: 8, fontSize: "0.82rem", justifyContent: "center" }}>📞 Call Now — FREE</a>
-                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "14px 28px", borderRadius: 8, fontSize: "0.82rem", justifyContent: "center" }}>💬 WhatsApp Now</a>
+                  <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "14px 28px", borderRadius: 8, fontSize: "0.94rem", justifyContent: "center" }}>📞 Call Now — FREE</a>
+                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "14px 28px", borderRadius: 8, fontSize: "0.94rem", justifyContent: "center" }}>💬 WhatsApp Now</a>
                 </div>
               </div>
             </div>

@@ -10,10 +10,10 @@ const astrologers = [
 ];
 
 const avatarColors = [
-  ["#B8860B", "#FFD700"],
-  ["#8B4513", "#D4AF37"],
-  ["#2C3E50", "#FFD700"],
-  ["#6B1A40", "#E8A800"],
+  ["#6B0E0E", "#B52424"],
+  ["#7A1515", "#CC4444"],
+  ["#8B1A1A", "#A52020"],
+  ["#0D4A18", "#B52424"],
 ];
 
 export default function AstrologersSection() {
@@ -84,7 +84,7 @@ export default function AstrologersSection() {
                   key={item}
                   style={{
                     fontFamily: "var(--font-ui)",
-                    fontSize: "0.9rem",
+                    fontSize: "1.02rem",
                     color: "var(--text-secondary)",
                     fontWeight: 600,
                     display: "flex",
@@ -101,7 +101,7 @@ export default function AstrologersSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold"
-              style={{ padding: "14px 36px", borderRadius: 8, fontSize: "0.85rem" }}
+              style={{ padding: "14px 36px", borderRadius: 8, fontSize: "0.96rem" }}
             >
               Consult Now →
             </a>
@@ -116,12 +116,12 @@ export default function AstrologersSection() {
               textAlign: "center",
               position: "relative",
               overflow: "hidden",
-              boxShadow: "0 20px 60px rgba(180,140,0,0.2)",
+              boxShadow: "0 20px 60px rgba(165,32,32,0.18)",
             }}
           >
             {/* Decorative rings */}
-            <div style={{ position: "absolute", top: -30, right: -30, width: 180, height: 180, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.2)", pointerEvents: "none" }} />
-            <div style={{ position: "absolute", bottom: -20, left: -20, width: 120, height: 120, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.15)", pointerEvents: "none" }} />
+            <div style={{ position: "absolute", top: -30, right: -30, width: 180, height: 180, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.3)", pointerEvents: "none" }} />
+            <div style={{ position: "absolute", bottom: -20, left: -20, width: 120, height: 120, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.2)", pointerEvents: "none" }} />
 
             <div style={{ fontSize: "4rem", marginBottom: 16 }} className="float-anim">🔮</div>
             <h3
@@ -129,14 +129,14 @@ export default function AstrologersSection() {
                 fontFamily: "var(--font-display)",
                 fontSize: "1.6rem",
                 fontWeight: 900,
-                color: "#1a0e00",
+                color: "#FFFFFF",
                 marginBottom: 8,
                 letterSpacing: "0.05em",
               }}
             >
               Vikram Bhai Joshi
             </h3>
-            <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.8rem", color: "rgba(26,14,0,0.7)", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: 24 }}>
+            <p style={{ fontFamily: "var(--font-ui)", fontSize: "1.04rem", color: "rgba(255,255,255,0.8)", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: 24 }}>
               Chief Astrologer
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
@@ -149,14 +149,14 @@ export default function AstrologersSection() {
                 <div
                   key={stat.l}
                   style={{
-                    background: "rgba(255,255,255,0.25)",
+                    background: "rgba(255,255,255,0.2)",
                     borderRadius: 10,
                     padding: "12px 8px",
                     backdropFilter: "blur(4px)",
                   }}
                 >
-                  <div style={{ fontFamily: "var(--font-heading)", fontSize: "1.3rem", fontWeight: 900, color: "#1a0e00" }}>{stat.v}</div>
-                  <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.68rem", color: "rgba(26,14,0,0.65)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stat.l}</div>
+                  <div style={{ fontFamily: "var(--font-heading)", fontSize: "1.3rem", fontWeight: 900, color: "#FFFFFF" }}>{stat.v}</div>
+                  <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.94rem", color: "rgba(255,255,255,0.75)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stat.l}</div>
                 </div>
               ))}
             </div>
@@ -185,20 +185,20 @@ export default function AstrologersSection() {
                 padding: "28px 20px",
                 borderRadius: 16,
                 background: "white",
-                border: "1px solid rgba(212,175,55,0.25)",
-                boxShadow: "0 4px 20px rgba(180,140,0,0.08)",
+                border: "1px solid rgba(165,32,32,0.2)",
+                boxShadow: "0 4px 20px rgba(165,32,32,0.07)",
                 textDecoration: "none",
                 transition: "all 0.28s ease",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(-8px)";
-                el.style.boxShadow = "0 16px 48px rgba(180,140,0,0.18)";
+                el.style.boxShadow = "0 16px 48px rgba(165,32,32,0.15)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(0)";
-                el.style.boxShadow = "0 4px 20px rgba(180,140,0,0.08)";
+                el.style.boxShadow = "0 4px 20px rgba(165,32,32,0.07)";
               }}
             >
               {/* Circular avatar */}
@@ -213,15 +213,15 @@ export default function AstrologersSection() {
                   justifyContent: "center",
                   fontSize: "2.5rem",
                   marginBottom: 16,
-                  border: "3px solid rgba(212,175,55,0.3)",
-                  boxShadow: "0 6px 24px rgba(180,140,0,0.2)",
+                  border: "3px solid rgba(165,32,32,0.3)",
+                  boxShadow: "0 6px 24px rgba(165,32,32,0.2)",
                 }}
               >
                 {a.icon}
               </div>
 
               {/* Stars */}
-              <div style={{ color: "var(--gold-amber)", fontSize: "0.8rem", letterSpacing: 2, marginBottom: 8 }}>
+              <div style={{ color: "var(--gold-amber)", fontSize: "1.04rem", letterSpacing: 2, marginBottom: 8 }}>
                 ★★★★★
               </div>
 
@@ -229,7 +229,7 @@ export default function AstrologersSection() {
               <div
                 style={{
                   fontFamily: "var(--font-heading)",
-                  fontSize: "0.88rem",
+                  fontSize: "1rem",
                   fontWeight: 700,
                   color: "var(--text-primary)",
                   textAlign: "center",
@@ -244,7 +244,7 @@ export default function AstrologersSection() {
               <div
                 style={{
                   fontFamily: "var(--font-ui)",
-                  fontSize: "0.72rem",
+                  fontSize: "0.84rem",
                   color: "var(--text-muted)",
                   textAlign: "center",
                   marginBottom: 14,
@@ -255,24 +255,24 @@ export default function AstrologersSection() {
 
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center", marginBottom: 14 }}>
                 <span style={{
-                  background: "rgba(255,215,0,0.1)",
-                  border: "1px solid rgba(212,175,55,0.3)",
+                  background: "rgba(165,32,32,0.08)",
+                  border: "1px solid rgba(165,32,32,0.25)",
                   borderRadius: 20,
                   padding: "3px 10px",
                   fontFamily: "var(--font-ui)",
-                  fontSize: "0.65rem",
+                  fontSize: "1.02rem",
                   fontWeight: 700,
                   color: "var(--gold-deep)",
                 }}>
                   {a.exp}
                 </span>
                 <span style={{
-                  background: "rgba(255,215,0,0.1)",
-                  border: "1px solid rgba(212,175,55,0.3)",
+                  background: "rgba(165,32,32,0.08)",
+                  border: "1px solid rgba(165,32,32,0.25)",
                   borderRadius: 20,
                   padding: "3px 10px",
                   fontFamily: "var(--font-ui)",
-                  fontSize: "0.65rem",
+                  fontSize: "1.02rem",
                   fontWeight: 700,
                   color: "var(--gold-deep)",
                 }}>
@@ -283,7 +283,7 @@ export default function AstrologersSection() {
               <div
                 style={{
                   fontFamily: "var(--font-ui)",
-                  fontSize: "0.72rem",
+                  fontSize: "0.84rem",
                   fontWeight: 700,
                   color: "var(--gold-deep)",
                   letterSpacing: "0.1em",

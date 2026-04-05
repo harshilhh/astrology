@@ -54,7 +54,7 @@ export default function LoveMarriageSolutionPage() {
       <Navbar />
       <main style={{ paddingTop: 80 }}>
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(255,215,0,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Love Marriage</span> Problem Solution
@@ -78,9 +78,9 @@ export default function LoveMarriageSolutionPage() {
                 {loveServices.map((s) => (
                   <a key={s.title} href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mystical-card" style={{ display: "block", padding: "24px", borderRadius: 0, textDecoration: "none", background: "var(--card-bg)" }}>
                     <div style={{ fontSize: "1.8rem", marginBottom: 12 }}>{s.icon}</div>
-                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{s.title}</h4>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{s.desc}</p>
-                    <div style={{ marginTop: 12, fontFamily: "var(--font-ui)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold-deep)" }}>Get Solution →</div>
+                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{s.title}</h4>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{s.desc}</p>
+                    <div style={{ marginTop: 12, fontFamily: "var(--font-ui)", fontSize: "0.84rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold-deep)" }}>Get Solution →</div>
                   </a>
                 ))}
               </div>
@@ -88,31 +88,31 @@ export default function LoveMarriageSolutionPage() {
 
             {/* Astrological factors + Solutions */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, marginBottom: 72 }} className="service-detail-grid">
-              <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "36px 28px", border: "1px solid rgba(212,175,55,0.3)" }}>
+              <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "36px 28px", border: "1px solid rgba(165,32,32,0.3)" }}>
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 20 }}>Astrological Root Causes</h3>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: 20, lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "1.02rem", color: "var(--text-muted)", marginBottom: 20, lineHeight: 1.7 }}>
                   Planetary positions in your birth chart that are analyzed to identify the root cause of your love problems:
                 </p>
                 {astroFactors.map((f) => (
                   <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10 }}>
                     <span style={{ color: "var(--gold-deep)", flexShrink: 0, marginTop: 2 }}>◆</span>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-secondary)" }}>{f}</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)" }}>{f}</span>
                   </div>
                 ))}
               </div>
-              <div style={{ background: "var(--card-bg)", borderRadius: 0, padding: "36px 28px", border: "1px solid rgba(212,175,55,0.2)", boxShadow: "0 4px 20px rgba(180,140,0,0.08)" }}>
+              <div style={{ background: "var(--card-bg)", borderRadius: 0, padding: "36px 28px", border: "1px solid rgba(165,32,32,0.2)", boxShadow: "0 4px 20px rgba(120,18,18,0.08)" }}>
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 20 }}>Solutions Offered</h3>
                 {solutions.map((s) => (
-                  <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10, padding: "8px 12px", background: "rgba(255,215,0,0.06)", borderRadius: 8 }}>
+                  <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10, padding: "8px 12px", background: "rgba(165,32,32,0.06)", borderRadius: 8 }}>
                     <span style={{ color: "var(--gold-amber)", flexShrink: 0 }}>✦</span>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-secondary)" }}>{s}</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)" }}>{s}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Experience badge + CTA */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.3)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)", padding: "56px 32px" }}>
               <div className="stars-rating" style={{ fontSize: "1.4rem", marginBottom: 16 }}>★★★★★</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", fontWeight: 900, letterSpacing: "0.04em", color: "var(--text-primary)", marginBottom: 12 }}>
                 25+ Years in Love Marriage Solutions
@@ -121,8 +121,8 @@ export default function LoveMarriageSolutionPage() {
                 Gemstones, yantras, positive vashikaran practices, rituals, yagnas and Kundli analysis — all with complete confidentiality.
               </p>
               <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>📞 Call Now — FREE</a>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>💬 WhatsApp Now</a>
+                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>📞 Call Now — FREE</a>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>💬 WhatsApp Now</a>
               </div>
             </div>
           </div>

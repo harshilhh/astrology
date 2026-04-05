@@ -45,7 +45,7 @@ export default function WealthBusinessPredictionPage() {
       <Navbar />
       <main style={{ paddingTop: 80 }}>
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(255,215,0,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Wealth & Business</span> Prediction
@@ -69,8 +69,8 @@ export default function WealthBusinessPredictionPage() {
                 {reportElements.map((e) => (
                   <div key={e.title} className="mystical-card" style={{ padding: "24px", borderRadius: 0, background: "var(--card-bg)" }}>
                     <div style={{ fontSize: "2rem", marginBottom: 12 }}>{e.icon}</div>
-                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{e.title}</h4>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{e.desc}</p>
+                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{e.title}</h4>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{e.desc}</p>
                   </div>
                 ))}
               </div>
@@ -83,9 +83,9 @@ export default function WealthBusinessPredictionPage() {
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 24 }}>Choose Your <span className="gold-text">Prediction Period</span></h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                   {reportOptions.map((r) => (
-                    <div key={r.period} style={{ padding: "20px 24px", background: "var(--bg-light-yellow)", borderRadius: 12, border: "1px solid rgba(212,175,55,0.3)" }}>
-                      <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", fontWeight: 700, color: "var(--gold-deep)", marginBottom: 6 }}>{r.period}</h4>
-                      <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>{r.desc}</p>
+                    <div key={r.period} style={{ padding: "20px 24px", background: "var(--bg-light-yellow)", borderRadius: 12, border: "1px solid rgba(165,32,32,0.3)" }}>
+                      <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--gold-deep)", marginBottom: 6 }}>{r.period}</h4>
+                      <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>{r.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -95,9 +95,9 @@ export default function WealthBusinessPredictionPage() {
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 24 }}>Key <span className="gold-text">Success Parameters</span></h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {successParameters.map((p) => (
-                    <div key={p} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "var(--card-bg)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.2)", boxShadow: "0 2px 8px rgba(180,140,0,0.05)" }}>
+                    <div key={p} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "var(--card-bg)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)", boxShadow: "0 2px 8px rgba(120,18,18,0.05)" }}>
                       <span style={{ color: "var(--gold-amber)" }}>★</span>
-                      <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.85rem", color: "var(--text-secondary)", fontWeight: 600 }}>{p}</span>
+                      <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.96rem", color: "var(--text-secondary)", fontWeight: 600 }}>{p}</span>
                     </div>
                   ))}
                 </div>
@@ -105,7 +105,7 @@ export default function WealthBusinessPredictionPage() {
             </div>
 
             {/* CTA */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.3)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)", padding: "56px 32px" }}>
               <div style={{ fontSize: "3rem", marginBottom: 16 }}>💰</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", fontWeight: 900, color: "var(--text-primary)", marginBottom: 12 }}>
                 Grow Your Business with Astrology
@@ -114,8 +114,8 @@ export default function WealthBusinessPredictionPage() {
                 Get your personalized business astrology report from Vikram Bhai Joshi. Identify ideal ventures, optimal timing and strategic guidance for sustained success.
               </p>
               <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>📞 Get A Quote</a>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>💬 WhatsApp Now</a>
+                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>📞 Get A Quote</a>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>💬 WhatsApp Now</a>
               </div>
             </div>
           </div>

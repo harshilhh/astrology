@@ -1,157 +1,371 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const PHONE = "+919737168423";
-const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
+const WA_LINK = `https://wa.me/919737168423`;
+
+const navLinks = [
+  { label: "Home",         href: "/" },
+  { label: "About",        href: "/about" },
+  { label: "Services",     href: "/services" },
+  { label: "Astrology",    href: "/astrology-services" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact",      href: "/contact" },
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled,  setScrolled] = useState(false);
+  const [menuOpen,  setMenuOpen] = useState(false);
+  const [activeHref, setActive]  = useState("/");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    setActive(window.location.pathname);
+    const onScroll = () => setScrolled(window.scrollY > 48);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Main Services", href: "/services" },
-    { label: "Astrology Services", href: "/astrology-services" },
-    { label: "Testimonials", href: "/testimonials" },
-    { label: "Contact Us", href: "/contact" },
-  ];
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   return (
     <>
-      <header style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
-        background: scrolled
-          ? "rgba(6,3,12,0.92)"
-          : "linear-gradient(180deg, rgba(6,3,12,0.85) 0%, transparent 100%)",
-        backdropFilter: scrolled ? "blur(24px)" : "blur(8px)",
-        borderBottom: scrolled ? "1px solid rgba(201,165,90,0.2)" : "1px solid transparent",
-        padding: scrolled ? "12px 0" : "20px 0",
-        boxShadow: scrolled ? "0 8px 40px rgba(0,0,0,0.6)" : "none",
-      }}>
-        {/* Top gold hairline */}
-        <div style={{
-          position: "absolute", top: 0, left: 0, right: 0, height: 1,
-          background: "linear-gradient(90deg, transparent, rgba(201,165,90,0.6), rgba(242,201,76,0.8), rgba(201,165,90,0.6), transparent)",
-        }} />
+      <header className={`nav-root${scrolled ? " nav-scrolled" : ""}`}>
 
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          {/* Logo */}
-          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
-            {/* Star of David / Yantra mark */}
-            <div style={{ position: "relative", width: 38, height: 38, flexShrink: 0 }}>
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
-                <polygon points="19,2 36,33 2,33" fill="none" stroke="#C9A55A" strokeWidth="1.2" opacity="0.9"/>
-                <polygon points="19,36 2,5 36,5" fill="none" stroke="#F2C94C" strokeWidth="1.2" opacity="0.6"/>
-                <circle cx="19" cy="19" r="5" fill="url(#navGold)" />
-                <defs>
-                  <radialGradient id="navGold" cx="35%" cy="30%">
-                    <stop offset="0%" stopColor="#F2C94C"/>
-                    <stop offset="100%" stopColor="#8B6830"/>
-                  </radialGradient>
-                </defs>
-              </svg>
-            </div>
-            <div>
-              <div style={{
-                fontFamily: "var(--font-display)", fontSize: "clamp(0.8rem, 2vw, 1rem)",
-                fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase",
-                color: "#F2E8D5", lineHeight: 1,
-              }} className="gold-shimmer">
-                Vikram Astrology
-              </div>
-              <div style={{
-                fontFamily: "var(--font-ui)", fontSize: "0.5rem", letterSpacing: "0.4em",
-                textTransform: "uppercase", color: "rgba(201,165,90,0.7)", marginTop: 4,
-              }}>
-                Best Ambaji Upasak
-              </div>
+        {/* Top accent bar */}
+        <div className="nav-topline" />
+
+        <div className="nav-inner">
+
+          {/* ── Logo — LEFT ── */}
+          <a href="/" className="nav-logo" aria-label="Vikram Astrology home">
+            <img src="/logo1.webp" alt="" className="nav-logo-img" />
+            <div className="nav-logo-text">
+              <span className="nav-logo-name">Vikram Astrology</span>
+              <span className="nav-logo-sub">Best Ambaji Upasak</span>
             </div>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="navbar-desktop" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href} style={{
-                fontFamily: "var(--font-ui)", fontSize: "0.62rem", letterSpacing: "0.18em",
-                textTransform: "uppercase", color: "rgba(242,232,213,0.75)", textDecoration: "none",
-                padding: "8px 14px", position: "relative", transition: "color 0.3s",
-              }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.color = "#F2C94C";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(242,232,213,0.75)";
-                }}
-              >
-                {link.label}
-              </a>
+          {/* ── Nav links — CENTER ── */}
+          <nav className="nav-links" aria-label="Primary navigation">
+            {navLinks.map((l) => (
+              <NavLink key={l.href} href={l.href} active={activeHref === l.href}>
+                {l.label}
+              </NavLink>
             ))}
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
-              className="btn-gold"
-              style={{ padding: "10px 24px", borderRadius: 0, fontSize: "0.58rem", marginLeft: 12, letterSpacing: "0.2em" }}>
-              Free Consultation
-            </a>
           </nav>
 
-          {/* Mobile Hamburger */}
+          {/* ── CTA — RIGHT ── */}
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="nav-cta">
+            <span>Consult Now</span>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+
+          {/* ── Hamburger ── */}
           <button
-            className="navbar-mobile-btn"
+            className={`nav-burger${menuOpen ? " open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
-            style={{ background: "none", border: "1px solid rgba(201,165,90,0.4)", padding: "10px 12px", cursor: "pointer", display: "flex", flexDirection: "column", gap: 5 }}>
-            {[0, 1, 2].map((i) => (
-              <span key={i} style={{
-                display: "block", width: 22, height: 1.5, background: "#C9A55A", transition: "all 0.3s",
-                transform: menuOpen ? i === 0 ? "rotate(45deg) translate(5px,5px)" : i === 2 ? "rotate(-45deg) translate(5px,-5px)" : "scaleX(0)" : "none",
-              }} />
-            ))}
+            aria-expanded={menuOpen}
+          >
+            <span /><span /><span />
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className="navbar-mobile-menu" style={{
-          display: menuOpen ? "flex" : "none",
-          background: "rgba(6,3,12,0.97)", backdropFilter: "blur(24px)",
-          borderTop: "1px solid rgba(201,165,90,0.2)",
-          padding: "28px 32px", flexDirection: "column", gap: 6,
-        }}>
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} style={{
-              fontFamily: "var(--font-ui)", fontSize: "0.7rem", letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "rgba(242,232,213,0.8)", textDecoration: "none",
-              padding: "14px 0", borderBottom: "1px solid rgba(201,165,90,0.1)",
-            }}>
-              {link.label}
-            </a>
-          ))}
-          <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-            <a href={`tel:${PHONE}`} className="btn-gold" style={{ flex: 1, padding: "12px", textAlign: "center", justifyContent: "center", fontSize: "0.6rem" }}>
-              📞 Call Now
-            </a>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ flex: 1, padding: "12px", textAlign: "center", justifyContent: "center", fontSize: "0.6rem" }}>
-              💬 WhatsApp
-            </a>
-          </div>
-        </div>
+        <div className="nav-bottomline" />
       </header>
 
+      {/* ── Mobile overlay ── */}
+      <div className={`nav-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+        <svg className="overlay-mandala" viewBox="0 0 400 400" fill="none">
+          <circle cx="200" cy="200" r="190" stroke="#A52020" strokeWidth="0.6" strokeDasharray="5 8" />
+          <circle cx="200" cy="200" r="140" stroke="#A52020" strokeWidth="0.4" />
+          <circle cx="200" cy="200" r="90"  stroke="#B52424" strokeWidth="0.6" strokeDasharray="2 6" />
+          <circle cx="200" cy="200" r="44"  stroke="#A52020" strokeWidth="0.4" />
+          {Array.from({ length: 12 }).map((_, i) => {
+            const a = (i * 30 - 90) * Math.PI / 180;
+            return <line key={i} x1={200+Math.cos(a)*47} y1={200+Math.sin(a)*47} x2={200+Math.cos(a)*188} y2={200+Math.sin(a)*188} stroke="#A52020" strokeWidth="0.3" opacity="0.6"/>;
+          })}
+        </svg>
+
+        <button className="overlay-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M1 1L17 17M17 1L1 17" stroke="#2E1A1A" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </button>
+
+        <nav className="overlay-nav">
+          {navLinks.map((l, i) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className={`overlay-link${activeHref === l.href ? " active" : ""}`}
+              onClick={() => setMenuOpen(false)}
+              style={{ animationDelay: `${i * 55}ms` }}
+            >
+              <span className="overlay-num">0{i + 1}</span>
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
+          className="overlay-cta" onClick={() => setMenuOpen(false)}>
+          Book Free Consultation
+        </a>
+      </div>
+
       <style>{`
-        @media (min-width: 1001px) {
-          .navbar-mobile-btn { display: none !important; }
-          .navbar-mobile-menu { display: none !important; }
+        .nav-root {
+          position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+          background: rgba(255,255,255,0.96);
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          transition: box-shadow 0.4s ease;
         }
-        @media (max-width: 1000px) {
-          .navbar-desktop { display: none !important; }
+        .nav-scrolled {
+          box-shadow: 0 1px 0 rgba(165,32,32,0.12), 0 8px 32px rgba(0,0,0,0.07);
+        }
+        .nav-topline {
+          height: 2px;
+          background: linear-gradient(90deg, transparent 0%, #6B0E0E 15%, #A52020 35%, #B52424 50%, #A52020 65%, #6B0E0E 85%, transparent 100%);
+        }
+        .nav-bottomline {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(165,32,32,0.15), transparent);
+        }
+
+        /* ── Inner ── */
+        .nav-inner {
+          max-width: 1320px;
+          margin: 0 auto;
+          padding: 0 36px;
+          display: flex;
+          align-items: center;
+          height: 72px;
+          gap: 0;
+          transition: height 0.4s ease;
+        }
+        .nav-scrolled .nav-inner { height: 60px; }
+
+        /* ── Logo ── */
+        .nav-logo {
+          display: flex;
+          align-items: center;
+          gap: 11px;
+          text-decoration: none;
+          flex-shrink: 0;
+          margin-right: 40px;
+        }
+        .nav-logo-img {
+          width: 48px;
+          height: 48px;
+          object-fit: contain;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .nav-scrolled .nav-logo-img { width: 40px; height: 40px; }
+        .nav-logo:hover .nav-logo-img { transform: scale(1.06); }
+        .nav-logo-text { display: flex; flex-direction: column; gap: 3px; }
+        .nav-logo-name {
+          font-family: var(--font-display);
+          font-size: 0.98rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          line-height: 1;
+          background: linear-gradient(90deg, #7A1515 0%, #B52424 40%, #F2C8C8 55%, #B52424 75%, #7A1515 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: shimmer 4s linear infinite;
+        }
+        .nav-logo-sub {
+          font-family: var(--font-ui);
+          font-size: 0.5rem;
+          letter-spacing: 0.38em;
+          text-transform: uppercase;
+          color: rgba(165,32,32,0.5);
+          line-height: 1;
+        }
+
+        /* ── Nav links ── */
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 0;
+          flex: 1;
+        }
+        .nav-link-item {
+          position: relative;
+          font-family: var(--font-ui);
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(46,26,26,0.55);
+          text-decoration: none;
+          padding: 8px 15px;
+          transition: color 0.25s ease;
+          white-space: nowrap;
+        }
+        .nav-link-item::after {
+          content: '';
+          position: absolute;
+          bottom: 2px;
+          left: 50%;
+          right: 50%;
+          height: 1px;
+          background: #A52020;
+          transition: left 0.28s ease, right 0.28s ease;
+        }
+        .nav-link-item:hover,
+        .nav-link-item.active { color: #A52020; }
+        .nav-link-item:hover::after,
+        .nav-link-item.active::after { left: 15px; right: 15px; }
+
+        /* ── CTA ── */
+        .nav-cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin-left: auto;
+          padding: 10px 24px;
+          font-family: var(--font-ui);
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #fff;
+          text-decoration: none;
+          background: #A52020;
+          flex-shrink: 0;
+          position: relative;
+          overflow: hidden;
+          transition: box-shadow 0.3s ease;
+        }
+        .nav-cta::before {
+          content: '';
+          position: absolute; inset: 0;
+          background: #6B0E0E;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.35s ease;
+        }
+        .nav-cta:hover { box-shadow: 0 6px 24px rgba(165,32,32,0.4); }
+        .nav-cta:hover::before { transform: scaleX(1); transform-origin: left; }
+        .nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
+
+        /* ── Hamburger ── */
+        .nav-burger {
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          margin-left: auto;
+        }
+        .nav-burger span {
+          display: block; width: 24px; height: 1.5px;
+          background: #2E1A1A;
+          transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+          transform-origin: center;
+        }
+        .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        /* ── Mobile overlay ── */
+        .nav-overlay {
+          position: fixed; inset: 0; z-index: 190;
+          background: rgba(253,247,247,0.98);
+          backdrop-filter: blur(24px);
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center;
+          opacity: 0; pointer-events: none;
+          transition: opacity 0.4s ease;
+        }
+        .nav-overlay.open { opacity: 1; pointer-events: all; }
+        .overlay-mandala {
+          position: absolute;
+          width: min(480px, 88vw); height: min(480px, 88vw);
+          opacity: 0.06; pointer-events: none;
+        }
+        .overlay-close {
+          position: absolute; top: 28px; right: 28px;
+          background: none; border: 1px solid rgba(165,32,32,0.22);
+          width: 44px; height: 44px;
+          display: flex; align-items: center; justify-content: center;
+          cursor: pointer; transition: background 0.2s;
+        }
+        .overlay-close:hover { background: rgba(165,32,32,0.06); }
+        .overlay-nav {
+          display: flex; flex-direction: column;
+          align-items: center; gap: 2px;
+          width: 100%; padding: 0 32px;
+          position: relative; z-index: 1;
+        }
+        .overlay-link {
+          display: flex; align-items: baseline; gap: 14px;
+          font-family: var(--font-display);
+          font-size: clamp(1.5rem, 5.5vw, 2.4rem);
+          font-weight: 700; letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: rgba(46,26,26,0.22);
+          text-decoration: none;
+          padding: 9px 24px; width: 100%; justify-content: center;
+          transition: color 0.25s ease;
+          animation: overlayIn 0.5s ease both;
+          animation-play-state: paused;
+        }
+        .nav-overlay.open .overlay-link { animation-play-state: running; }
+        @keyframes overlayIn {
+          from { opacity: 0; transform: translateY(14px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .overlay-link:hover, .overlay-link.active { color: #A52020; }
+        .overlay-num {
+          font-family: var(--font-ui); font-size: 0.56rem;
+          letter-spacing: 0.2em; color: rgba(165,32,32,0.35);
+          font-weight: 400; min-width: 18px;
+        }
+        .overlay-cta {
+          margin-top: 40px; padding: 15px 48px;
+          font-family: var(--font-ui); font-size: 0.74rem;
+          font-weight: 700; letter-spacing: 0.2em;
+          text-transform: uppercase; color: #fff;
+          text-decoration: none;
+          background: linear-gradient(135deg, #6B0E0E, #A52020, #B52424);
+          box-shadow: 0 8px 32px rgba(165,32,32,0.3);
+          position: relative; z-index: 1;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1080px) {
+          .nav-links, .nav-cta { display: none !important; }
+          .nav-burger { display: flex !important; }
+          .nav-logo { margin-right: 0; }
+        }
+        @media (max-width: 480px) {
+          .nav-inner { padding: 0 20px; }
         }
       `}</style>
     </>
+  );
+}
+
+function NavLink({ href, active, children }: {
+  href: string; active: boolean; children: React.ReactNode;
+}) {
+  return (
+    <a href={href} className={`nav-link-item${active ? " active" : ""}`}>
+      {children}
+    </a>
   );
 }

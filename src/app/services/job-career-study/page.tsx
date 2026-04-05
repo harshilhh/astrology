@@ -36,7 +36,7 @@ export default function JobCareerStudyPage() {
       <Navbar />
       <main style={{ paddingTop: 80 }}>
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(255,215,0,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Job, Career</span> & Study Report
@@ -56,10 +56,10 @@ export default function JobCareerStudyPage() {
                 { icon: "📧", title: "Email & Phone", desc: "Prompt responses" },
                 { icon: "🌍", title: "Global Access", desc: "Consult from anywhere" },
               ].map((b) => (
-                <div key={b.title} style={{ padding: "24px 20px", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.3)", textAlign: "center" }}>
+                <div key={b.title} style={{ padding: "24px 20px", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)", textAlign: "center" }}>
                   <div style={{ fontSize: "2.2rem", marginBottom: 10 }}>{b.icon}</div>
-                  <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.85rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 4 }}>{b.title}</h4>
-                  <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.78rem", color: "var(--text-muted)" }}>{b.desc}</p>
+                  <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.96rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 4 }}>{b.title}</h4>
+                  <p style={{ fontFamily: "var(--font-ui)", fontSize: "1.02rem", color: "var(--text-muted)" }}>{b.desc}</p>
                 </div>
               ))}
             </div>
@@ -76,8 +76,8 @@ export default function JobCareerStudyPage() {
                 {careerTopics.map((t) => (
                   <div key={t.title} className="mystical-card" style={{ padding: "24px", borderRadius: 0, background: "var(--card-bg)" }}>
                     <div style={{ fontSize: "1.8rem", marginBottom: 12 }}>{t.icon}</div>
-                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{t.title}</h4>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{t.desc}</p>
+                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{t.title}</h4>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{t.desc}</p>
                   </div>
                 ))}
               </div>
@@ -93,17 +93,17 @@ export default function JobCareerStudyPage() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 20 }}>
                 {remedies.map((r) => (
-                  <div key={r.title} style={{ padding: "24px", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.3)" }}>
+                  <div key={r.title} style={{ padding: "24px", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)" }}>
                     <div style={{ fontSize: "2rem", marginBottom: 12 }}>{r.icon}</div>
-                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "0.9rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{r.title}</h4>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>{r.desc}</p>
+                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{r.title}</h4>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>{r.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(212,175,55,0.3)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)", padding: "56px 32px" }}>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", fontWeight: 900, color: "var(--text-primary)", marginBottom: 12 }}>
                 Accelerate Your Career Growth
               </h2>
@@ -111,8 +111,8 @@ export default function JobCareerStudyPage() {
                 Get your personalized career astrology report with email or phone consultation. Smart, calculated decision-making support from Vikram Bhai Joshi.
               </p>
               <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>📞 Call Now — FREE</a>
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.85rem" }}>💬 WhatsApp Now</a>
+                <a href={`tel:${PHONE}`} className="btn-gold" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>📞 Call Now — FREE</a>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ padding: "15px 44px", borderRadius: 8, fontSize: "0.96rem" }}>💬 WhatsApp Now</a>
               </div>
             </div>
           </div>
