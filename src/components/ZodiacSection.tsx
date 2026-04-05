@@ -7,7 +7,7 @@ const zodiacSigns = [
   { name: "Leo",         symbol: "♌", dates: "Jul 23 – Aug 22", color: "#e67e22", element: "Fire"  },
   { name: "Virgo",       symbol: "♍", dates: "Aug 23 – Sep 22", color: "#8e44ad", element: "Earth" },
   { name: "Libra",       symbol: "♎", dates: "Sep 23 – Oct 22", color: "#16a085", element: "Air"   },
-  { name: "Scorpio",     symbol: "♏", dates: "Oct 23 – Nov 21", color: "#c0392b", element: "Water" },
+  { name: "Scorpio",     symbol: "♏", dates: "Oct 23 – Nov 21", color: "#D9582A", element: "Water" },
   { name: "Sagittarius", symbol: "♐", dates: "Nov 22 – Dec 21", color: "#d35400", element: "Fire"  },
   { name: "Capricorn",   symbol: "♑", dates: "Dec 22 – Jan 19", color: "#2c3e50", element: "Earth" },
   { name: "Aquarius",    symbol: "♒", dates: "Jan 20 – Feb 18", color: "#2980b9", element: "Air"   },
@@ -52,11 +52,11 @@ export default function ZodiacSection() {
         {/* Decorative divider */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
           <svg width="320" height="20" viewBox="0 0 320 20" fill="none">
-            <line x1="0" y1="10" x2="130" y2="10" stroke="#A52020" strokeWidth="1" opacity="0.5" />
-            <circle cx="145" cy="10" r="4" fill="#A52020" />
-            <circle cx="160" cy="10" r="7" fill="#B52424" opacity="0.9" />
-            <circle cx="175" cy="10" r="4" fill="#A52020" />
-            <line x1="190" y1="10" x2="320" y2="10" stroke="#A52020" strokeWidth="1" opacity="0.5" />
+            <line x1="0" y1="10" x2="130" y2="10" stroke="#E8562A" strokeWidth="1" opacity="0.5" />
+            <circle cx="145" cy="10" r="4" fill="#E8562A" />
+            <circle cx="160" cy="10" r="7" fill="#F06830" opacity="0.9" />
+            <circle cx="175" cy="10" r="4" fill="#E8562A" />
+            <line x1="190" y1="10" x2="320" y2="10" stroke="#E8562A" strokeWidth="1" opacity="0.5" />
           </svg>
         </div>
 
@@ -81,8 +81,8 @@ export default function ZodiacSection() {
                 padding: "20px 12px 16px",
                 borderRadius: 16,
                 background: "white",
-                border: "1px solid rgba(165,32,32,0.18)",
-                boxShadow: "0 2px 12px rgba(165,32,32,0.06)",
+                border: "1px solid rgba(232,86,42,0.18)",
+                boxShadow: "0 2px 12px rgba(232,86,42,0.06)",
                 textDecoration: "none",
                 transition: "all 0.28s ease",
                 cursor: "pointer",
@@ -90,14 +90,14 @@ export default function ZodiacSection() {
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(-6px)";
-                el.style.boxShadow = "0 12px 32px rgba(165,32,32,0.15)";
-                el.style.borderColor = "rgba(165,32,32,0.45)";
+                el.style.boxShadow = "0 12px 32px rgba(232,86,42,0.15)";
+                el.style.borderColor = "rgba(232,86,42,0.45)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(0)";
-                el.style.boxShadow = "0 2px 12px rgba(165,32,32,0.06)";
-                el.style.borderColor = "rgba(165,32,32,0.18)";
+                el.style.boxShadow = "0 2px 12px rgba(232,86,42,0.06)";
+                el.style.borderColor = "rgba(232,86,42,0.18)";
               }}
             >
               {/* Circular icon */}

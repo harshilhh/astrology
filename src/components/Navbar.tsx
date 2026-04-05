@@ -81,13 +81,13 @@ export default function Navbar() {
       {/* ── Mobile overlay ── */}
       <div className={`nav-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         <svg className="overlay-mandala" viewBox="0 0 400 400" fill="none">
-          <circle cx="200" cy="200" r="190" stroke="#A52020" strokeWidth="0.6" strokeDasharray="5 8" />
-          <circle cx="200" cy="200" r="140" stroke="#A52020" strokeWidth="0.4" />
-          <circle cx="200" cy="200" r="90"  stroke="#B52424" strokeWidth="0.6" strokeDasharray="2 6" />
-          <circle cx="200" cy="200" r="44"  stroke="#A52020" strokeWidth="0.4" />
+          <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="0.6" strokeDasharray="5 8" />
+          <circle cx="200" cy="200" r="140" stroke="#E8562A" strokeWidth="0.4" />
+          <circle cx="200" cy="200" r="90"  stroke="#F06830" strokeWidth="0.6" strokeDasharray="2 6" />
+          <circle cx="200" cy="200" r="44"  stroke="#E8562A" strokeWidth="0.4" />
           {Array.from({ length: 12 }).map((_, i) => {
             const a = (i * 30 - 90) * Math.PI / 180;
-            return <line key={i} x1={200+Math.cos(a)*47} y1={200+Math.sin(a)*47} x2={200+Math.cos(a)*188} y2={200+Math.sin(a)*188} stroke="#A52020" strokeWidth="0.3" opacity="0.6"/>;
+            return <line key={i} x1={200+Math.cos(a)*47} y1={200+Math.sin(a)*47} x2={200+Math.cos(a)*188} y2={200+Math.sin(a)*188} stroke="#E8562A" strokeWidth="0.3" opacity="0.6"/>;
           })}
         </svg>
 
@@ -127,15 +127,15 @@ export default function Navbar() {
           transition: box-shadow 0.4s ease;
         }
         .nav-scrolled {
-          box-shadow: 0 1px 0 rgba(165,32,32,0.12), 0 8px 32px rgba(0,0,0,0.07);
+          box-shadow: 0 1px 0 rgba(232,86,42,0.12), 0 8px 32px rgba(0,0,0,0.07);
         }
         .nav-topline {
           height: 2px;
-          background: linear-gradient(90deg, transparent 0%, #6B0E0E 15%, #A52020 35%, #B52424 50%, #A52020 65%, #6B0E0E 85%, transparent 100%);
+          background: linear-gradient(90deg, transparent 0%, #A53A15 15%, #E8562A 35%, #F06830 50%, #E8562A 65%, #A53A15 85%, transparent 100%);
         }
         .nav-bottomline {
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(165,32,32,0.15), transparent);
+          background: linear-gradient(90deg, transparent, rgba(232,86,42,0.15), transparent);
         }
 
         /* ── Inner ── */
@@ -177,7 +177,7 @@ export default function Navbar() {
           letter-spacing: 0.16em;
           text-transform: uppercase;
           line-height: 1;
-          background: linear-gradient(90deg, #7A1515 0%, #B52424 40%, #F2C8C8 55%, #B52424 75%, #7A1515 100%);
+          background: linear-gradient(90deg, #B8401A 0%, #F06830 40%, #F5D8C8 55%, #F06830 75%, #B8401A 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -189,7 +189,7 @@ export default function Navbar() {
           font-size: 0.5rem;
           letter-spacing: 0.38em;
           text-transform: uppercase;
-          color: rgba(165,32,32,0.5);
+          color: rgba(232,86,42,0.5);
           line-height: 1;
         }
 
@@ -220,11 +220,11 @@ export default function Navbar() {
           left: 50%;
           right: 50%;
           height: 1px;
-          background: #A52020;
+          background: #E8562A;
           transition: left 0.28s ease, right 0.28s ease;
         }
         .nav-link-item:hover,
-        .nav-link-item.active { color: #A52020; }
+        .nav-link-item.active { color: #E8562A; }
         .nav-link-item:hover::after,
         .nav-link-item.active::after { left: 15px; right: 15px; }
 
@@ -242,7 +242,7 @@ export default function Navbar() {
           text-transform: uppercase;
           color: #fff;
           text-decoration: none;
-          background: #A52020;
+          background: #E8562A;
           flex-shrink: 0;
           position: relative;
           overflow: hidden;
@@ -251,12 +251,12 @@ export default function Navbar() {
         .nav-cta::before {
           content: '';
           position: absolute; inset: 0;
-          background: #6B0E0E;
+          background: #A53A15;
           transform: scaleX(0);
           transform-origin: right;
           transition: transform 0.35s ease;
         }
-        .nav-cta:hover { box-shadow: 0 6px 24px rgba(165,32,32,0.4); }
+        .nav-cta:hover { box-shadow: 0 6px 24px rgba(232,86,42,0.4); }
         .nav-cta:hover::before { transform: scaleX(1); transform-origin: left; }
         .nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
 
@@ -299,12 +299,12 @@ export default function Navbar() {
         }
         .overlay-close {
           position: absolute; top: 28px; right: 28px;
-          background: none; border: 1px solid rgba(165,32,32,0.22);
+          background: none; border: 1px solid rgba(232,86,42,0.22);
           width: 44px; height: 44px;
           display: flex; align-items: center; justify-content: center;
           cursor: pointer; transition: background 0.2s;
         }
-        .overlay-close:hover { background: rgba(165,32,32,0.06); }
+        .overlay-close:hover { background: rgba(232,86,42,0.06); }
         .overlay-nav {
           display: flex; flex-direction: column;
           align-items: center; gap: 2px;
@@ -329,10 +329,10 @@ export default function Navbar() {
           from { opacity: 0; transform: translateY(14px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .overlay-link:hover, .overlay-link.active { color: #A52020; }
+        .overlay-link:hover, .overlay-link.active { color: #E8562A; }
         .overlay-num {
           font-family: var(--font-ui); font-size: 0.56rem;
-          letter-spacing: 0.2em; color: rgba(165,32,32,0.35);
+          letter-spacing: 0.2em; color: rgba(232,86,42,0.35);
           font-weight: 400; min-width: 18px;
         }
         .overlay-cta {
@@ -341,8 +341,8 @@ export default function Navbar() {
           font-weight: 700; letter-spacing: 0.2em;
           text-transform: uppercase; color: #fff;
           text-decoration: none;
-          background: linear-gradient(135deg, #6B0E0E, #A52020, #B52424);
-          box-shadow: 0 8px 32px rgba(165,32,32,0.3);
+          background: linear-gradient(135deg, #A53A15, #E8562A, #F06830);
+          box-shadow: 0 8px 32px rgba(232,86,42,0.3);
           position: relative; z-index: 1;
         }
 

@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 import MarqueeBar from "@/components/MarqueeBar";
-import StatsSection from "@/components/StatsSection";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
@@ -12,8 +12,8 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <ReviewsCarousel />
         <MarqueeBar />
-        <StatsSection />
         <CTABanner />
       </main>
       <Footer />

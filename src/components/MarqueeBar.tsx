@@ -17,16 +17,16 @@ export default function MarqueeBar() {
 
   return (
     <div style={{
-      background: "linear-gradient(90deg, #F9EFEF 0%, #F5E5E5 20%, #F9EFEF 50%, #F5E5E5 80%, #F9EFEF 100%)",
-      borderTop: "1px solid rgba(165,32,32,0.3)",
-      borderBottom: "1px solid rgba(165,32,32,0.3)",
+      background: "linear-gradient(90deg, #F9F0E8 0%, #F5E8E0 20%, #F9F0E8 50%, #F5E8E0 80%, #F9F0E8 100%)",
+      borderTop: "1px solid rgba(232,86,42,0.3)",
+      borderBottom: "1px solid rgba(232,86,42,0.3)",
       padding: "0",
       overflow: "hidden",
       position: "relative",
     }}>
       {/* Green top line */}
-      <div style={{ position:"absolute", top:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(181,36,36,0.5), transparent)" }} />
-      <div style={{ position:"absolute", bottom:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(165,32,32,0.35), transparent)" }} />
+      <div style={{ position:"absolute", top:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(240,104,48,0.5), transparent)" }} />
+      <div style={{ position:"absolute", bottom:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(232,86,42,0.35), transparent)" }} />
 
       <div className="marquee-track" style={{ display:"flex", width:"max-content", padding:"0" }}>
         {doubled.map((item, i) => (
@@ -38,9 +38,9 @@ export default function MarqueeBar() {
             fontWeight:700,
             letterSpacing:"0.28em",
             textTransform:"uppercase",
-            color:"rgba(165,32,32,0.85)",
+            color:"rgba(232,86,42,0.85)",
             whiteSpace:"nowrap",
-            borderRight:"1px solid rgba(165,32,32,0.12)",
+            borderRight:"1px solid rgba(232,86,42,0.12)",
           }}>
             {item}
           </span>

@@ -7,40 +7,40 @@ const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 const slides = [
   {
-    bg: "linear-gradient(120deg, #F5E5E5 0%, #EED8D8 40%, #F9EFEF 100%)",
+    bg: "linear-gradient(120deg, #F5E8E0 0%, #EEE0D8 40%, #F9F0E8 100%)",
     badge: "✦ 20+ Years of Vedic Wisdom",
     heading: "Find Your Path\nWith Ancient\nAstrology",
     sub: "Vikram Bhai Joshi — Best Ambaji Upasak & Vedic Astrology Expert",
     cta1: "📞 Free Consultation",
     cta2: "💬 WhatsApp Now",
-    accent: "#A52020",
+    accent: "#E8562A",
   },
   {
-    bg: "linear-gradient(120deg, #F9EFEF 0%, #F2C8C8 40%, #F5E5E5 100%)",
+    bg: "linear-gradient(120deg, #F9F0E8 0%, #F5D8C8 40%, #F5E8E0 100%)",
     badge: "✦ 10,000+ Happy Clients",
     heading: "Love Problem\nSolution\nSpecialist",
     sub: "Instant solutions for love, marriage, career & spiritual healing. 100% confidential.",
     cta1: "📞 Call Now — Free",
     cta2: "💬 Chat on WhatsApp",
-    accent: "#8B1A1A",
+    accent: "#C4461E",
   },
   {
-    bg: "linear-gradient(120deg, #FDF7F7 0%, #EED8D8 40%, #F2C8C8 100%)",
+    bg: "linear-gradient(120deg, #FDF7F7 0%, #EEE0D8 40%, #F5D8C8 100%)",
     badge: "✦ Available 24/7",
     heading: "Transform Your\nLife With\nVedic Remedies",
     sub: "Expert guidance for all life challenges — love, family, career, black magic removal.",
     cta1: "📞 Get Solution Now",
     cta2: "💬 WhatsApp Us",
-    accent: "#B52424",
+    accent: "#F06830",
   },
   {
-    bg: "linear-gradient(120deg, #F5E5E5 0%, #F9EFEF 40%, #FDF7F7 100%)",
+    bg: "linear-gradient(120deg, #F5E8E0 0%, #F9F0E8 40%, #FDF7F7 100%)",
     badge: "✦ Certified Jyotish Acharya",
     heading: "Horoscope &\nKundli Reading\nExpert",
     sub: "Personalized birth chart analysis, kundli matching, and life path predictions.",
     cta1: "📞 Book Consultation",
     cta2: "💬 WhatsApp Now",
-    accent: "#A52020",
+    accent: "#E8562A",
   },
 ];
 
@@ -97,17 +97,17 @@ export default function HeroCarousel() {
           style={{ position: "absolute", right: 0, top: 0, height: "100%", width: "50%", opacity: 0.08, pointerEvents: "none" }}
           viewBox="0 0 400 600" fill="none"
         >
-          <circle cx="300" cy="300" r="250" stroke="#A52020" strokeWidth="1" />
-          <circle cx="300" cy="300" r="200" stroke="#A52020" strokeWidth="0.5" strokeDasharray="6 4" />
-          <circle cx="300" cy="300" r="150" stroke="#A52020" strokeWidth="1" />
-          <circle cx="300" cy="300" r="80" fill="rgba(165,32,32,0.12)" />
+          <circle cx="300" cy="300" r="250" stroke="#E8562A" strokeWidth="1" />
+          <circle cx="300" cy="300" r="200" stroke="#E8562A" strokeWidth="0.5" strokeDasharray="6 4" />
+          <circle cx="300" cy="300" r="150" stroke="#E8562A" strokeWidth="1" />
+          <circle cx="300" cy="300" r="80" fill="rgba(232,86,42,0.12)" />
           {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => (
             <line key={i}
               x1={300 + Math.cos(deg*Math.PI/180)*80}
               y1={300 + Math.sin(deg*Math.PI/180)*80}
               x2={300 + Math.cos(deg*Math.PI/180)*250}
               y2={300 + Math.sin(deg*Math.PI/180)*250}
-              stroke="#A52020" strokeWidth="0.5" opacity="0.5"
+              stroke="#E8562A" strokeWidth="0.5" opacity="0.5"
             />
           ))}
         </svg>
@@ -265,7 +265,7 @@ export default function HeroCarousel() {
               width: i === active ? 32 : 10,
               height: 10,
               borderRadius: 5,
-              background: i === active ? "#A52020" : "rgba(165,32,32,0.35)",
+              background: i === active ? "#E8562A" : "rgba(232,86,42,0.35)",
               border: "none",
               cursor: "pointer",
               transition: "all 0.3s ease",
@@ -291,9 +291,9 @@ export default function HeroCarousel() {
             top: "50%",
             [pos]: 20,
             transform: "translateY(-50%)",
-            background: "rgba(165,32,32,0.12)",
-            border: "1px solid rgba(165,32,32,0.3)",
-            color: "#A52020",
+            background: "rgba(232,86,42,0.12)",
+            border: "1px solid rgba(232,86,42,0.3)",
+            color: "#E8562A",
             width: 44,
             height: 44,
             borderRadius: "50%",
@@ -307,8 +307,8 @@ export default function HeroCarousel() {
             transition: "all 0.2s",
             backdropFilter: "blur(4px)",
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(165,32,32,0.25)"; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(165,32,32,0.12)"; }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(232,86,42,0.25)"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(232,86,42,0.12)"; }}
         >
           {icon}
         </button>

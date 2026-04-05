@@ -45,7 +45,7 @@ export default function WealthBusinessPredictionPage() {
       <Navbar />
       <main style={{ paddingTop: 80 }}>
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(232,86,42,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Wealth & Business</span> Prediction
@@ -83,7 +83,7 @@ export default function WealthBusinessPredictionPage() {
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 24 }}>Choose Your <span className="gold-text">Prediction Period</span></h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                   {reportOptions.map((r) => (
-                    <div key={r.period} style={{ padding: "20px 24px", background: "var(--bg-light-yellow)", borderRadius: 12, border: "1px solid rgba(165,32,32,0.3)" }}>
+                    <div key={r.period} style={{ padding: "20px 24px", background: "var(--bg-light-yellow)", borderRadius: 12, border: "1px solid rgba(232,86,42,0.3)" }}>
                       <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--gold-deep)", marginBottom: 6 }}>{r.period}</h4>
                       <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>{r.desc}</p>
                     </div>
@@ -95,7 +95,7 @@ export default function WealthBusinessPredictionPage() {
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 24 }}>Key <span className="gold-text">Success Parameters</span></h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {successParameters.map((p) => (
-                    <div key={p} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "var(--card-bg)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)", boxShadow: "0 2px 8px rgba(120,18,18,0.05)" }}>
+                    <div key={p} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "var(--card-bg)", borderRadius: 0, border: "1px solid rgba(232,86,42,0.2)", boxShadow: "0 2px 8px rgba(120,18,18,0.05)" }}>
                       <span style={{ color: "var(--gold-amber)" }}>★</span>
                       <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.96rem", color: "var(--text-secondary)", fontWeight: 600 }}>{p}</span>
                     </div>
@@ -105,7 +105,7 @@ export default function WealthBusinessPredictionPage() {
             </div>
 
             {/* CTA */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(232,86,42,0.3)", padding: "56px 32px" }}>
               <div style={{ fontSize: "3rem", marginBottom: 16 }}>💰</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", fontWeight: 900, color: "var(--text-primary)", marginBottom: 12 }}>
                 Grow Your Business with Astrology

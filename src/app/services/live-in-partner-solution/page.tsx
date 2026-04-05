@@ -36,7 +36,7 @@ export default function LiveInPartnerSolutionPage() {
       <Navbar />
       <main style={{ paddingTop: 80 }}>
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(232,86,42,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Live-in Partner</span> Problem Solutions
@@ -77,7 +77,7 @@ export default function LiveInPartnerSolutionPage() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
                 {solutions.map((s) => (
-                  <a key={s.title} href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mystical-card" style={{ display: "block", padding: "24px", borderRadius: 0, textDecoration: "none", background: "var(--bg-light-yellow)", border: "1px solid rgba(165,32,32,0.3)" }}>
+                  <a key={s.title} href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mystical-card" style={{ display: "block", padding: "24px", borderRadius: 0, textDecoration: "none", background: "var(--bg-light-yellow)", border: "1px solid rgba(232,86,42,0.3)" }}>
                     <div style={{ fontSize: "1.8rem", marginBottom: 12 }}>{s.icon}</div>
                     <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{s.title}</h4>
                     <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>{s.desc}</p>
@@ -88,7 +88,7 @@ export default function LiveInPartnerSolutionPage() {
             </div>
 
             {/* CTA */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.3)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(232,86,42,0.3)", padding: "56px 32px" }}>
               <div style={{ fontSize: "3rem", marginBottom: 16 }}>💑</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", fontWeight: 900, color: "var(--text-primary)", marginBottom: 12 }}>
                 Restore Harmony in Your Relationship

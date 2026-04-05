@@ -48,7 +48,7 @@ export default function AstrologyServicesPage() {
       <main style={{ paddingTop: 80 }}>
         {/* Page header */}
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.08) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(232,86,42,0.08) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Astrology Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">26 Specialized</span> Astrology Services
@@ -71,7 +71,7 @@ export default function AstrologyServicesPage() {
                   className="mystical-card"
                   style={{ display: "flex", gap: 18, padding: "24px", borderRadius: 0, textDecoration: "none", background: "var(--card-bg)", alignItems: "flex-start" }}
                 >
-                  <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(165,32,32,0.08)", border: "1px solid rgba(165,32,32,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", flexShrink: 0 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(232,86,42,0.08)", border: "1px solid rgba(232,86,42,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", flexShrink: 0 }}>
                     {svc.icon}
                   </div>
                   <div style={{ flex: 1 }}>
@@ -87,7 +87,7 @@ export default function AstrologyServicesPage() {
             </div>
 
             {/* CTA box */}
-            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)", padding: "56px 32px" }}>
+            <div style={{ textAlign: "center", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(232,86,42,0.2)", padding: "56px 32px" }}>
               <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Get A Quote</span>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.6rem, 4vw, 2.6rem)", fontWeight: 900, letterSpacing: "0.04em", color: "var(--text-primary)", marginBottom: 16 }}>
                 Book Your Consultation Today

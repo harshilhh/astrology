@@ -10,10 +10,10 @@ const astrologers = [
 ];
 
 const avatarColors = [
-  ["#6B0E0E", "#B52424"],
-  ["#7A1515", "#CC4444"],
-  ["#8B1A1A", "#A52020"],
-  ["#0D4A18", "#B52424"],
+  ["#A53A15", "#F06830"],
+  ["#B8401A", "#E8724A"],
+  ["#C4461E", "#E8562A"],
+  ["#0D4A18", "#F06830"],
 ];
 
 export default function AstrologersSection() {
@@ -116,7 +116,7 @@ export default function AstrologersSection() {
               textAlign: "center",
               position: "relative",
               overflow: "hidden",
-              boxShadow: "0 20px 60px rgba(165,32,32,0.18)",
+              boxShadow: "0 20px 60px rgba(232,86,42,0.18)",
             }}
           >
             {/* Decorative rings */}
@@ -185,20 +185,20 @@ export default function AstrologersSection() {
                 padding: "28px 20px",
                 borderRadius: 16,
                 background: "white",
-                border: "1px solid rgba(165,32,32,0.2)",
-                boxShadow: "0 4px 20px rgba(165,32,32,0.07)",
+                border: "1px solid rgba(232,86,42,0.2)",
+                boxShadow: "0 4px 20px rgba(232,86,42,0.07)",
                 textDecoration: "none",
                 transition: "all 0.28s ease",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(-8px)";
-                el.style.boxShadow = "0 16px 48px rgba(165,32,32,0.15)";
+                el.style.boxShadow = "0 16px 48px rgba(232,86,42,0.15)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(0)";
-                el.style.boxShadow = "0 4px 20px rgba(165,32,32,0.07)";
+                el.style.boxShadow = "0 4px 20px rgba(232,86,42,0.07)";
               }}
             >
               {/* Circular avatar */}
@@ -213,8 +213,8 @@ export default function AstrologersSection() {
                   justifyContent: "center",
                   fontSize: "2.5rem",
                   marginBottom: 16,
-                  border: "3px solid rgba(165,32,32,0.3)",
-                  boxShadow: "0 6px 24px rgba(165,32,32,0.2)",
+                  border: "3px solid rgba(232,86,42,0.3)",
+                  boxShadow: "0 6px 24px rgba(232,86,42,0.2)",
                 }}
               >
                 {a.icon}
@@ -255,8 +255,8 @@ export default function AstrologersSection() {
 
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center", marginBottom: 14 }}>
                 <span style={{
-                  background: "rgba(165,32,32,0.08)",
-                  border: "1px solid rgba(165,32,32,0.25)",
+                  background: "rgba(232,86,42,0.08)",
+                  border: "1px solid rgba(232,86,42,0.25)",
                   borderRadius: 20,
                   padding: "3px 10px",
                   fontFamily: "var(--font-ui)",
@@ -267,8 +267,8 @@ export default function AstrologersSection() {
                   {a.exp}
                 </span>
                 <span style={{
-                  background: "rgba(165,32,32,0.08)",
-                  border: "1px solid rgba(165,32,32,0.25)",
+                  background: "rgba(232,86,42,0.08)",
+                  border: "1px solid rgba(232,86,42,0.25)",
                   borderRadius: 20,
                   padding: "3px 10px",
                   fontFamily: "var(--font-ui)",

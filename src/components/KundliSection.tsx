@@ -7,17 +7,17 @@ function KundliChart() {
   return (
     <svg viewBox="0 0 300 300" fill="none" style={{ width: "100%", maxWidth: 340, height: "auto" }} className="illustration-wrap">
       {/* Outer square */}
-      <rect x="10" y="10" width="280" height="280" stroke="#A52020" strokeWidth="2" fill="rgba(165,32,32,0.03)" />
+      <rect x="10" y="10" width="280" height="280" stroke="#E8562A" strokeWidth="2" fill="rgba(232,86,42,0.03)" />
       {/* Inner square rotated 45° (diamond) */}
-      <rect x="75" y="75" width="150" height="150" stroke="#A52020" strokeWidth="1.5" fill="rgba(181,36,36,0.04)" transform="rotate(45 150 150)" />
+      <rect x="75" y="75" width="150" height="150" stroke="#E8562A" strokeWidth="1.5" fill="rgba(240,104,48,0.04)" transform="rotate(45 150 150)" />
       {/* Inner square */}
-      <rect x="90" y="90" width="120" height="120" stroke="#A52020" strokeWidth="1.5" fill="rgba(165,32,32,0.06)" />
+      <rect x="90" y="90" width="120" height="120" stroke="#E8562A" strokeWidth="1.5" fill="rgba(232,86,42,0.06)" />
       {/* Diagonal lines */}
-      <line x1="10" y1="10" x2="290" y2="290" stroke="#A52020" strokeWidth="1" opacity="0.35" />
-      <line x1="290" y1="10" x2="10" y2="290" stroke="#A52020" strokeWidth="1" opacity="0.35" />
+      <line x1="10" y1="10" x2="290" y2="290" stroke="#E8562A" strokeWidth="1" opacity="0.35" />
+      <line x1="290" y1="10" x2="10" y2="290" stroke="#E8562A" strokeWidth="1" opacity="0.35" />
       {/* Cross lines */}
-      <line x1="150" y1="10" x2="150" y2="290" stroke="#A52020" strokeWidth="1" opacity="0.35" />
-      <line x1="10" y1="150" x2="290" y2="150" stroke="#A52020" strokeWidth="1" opacity="0.35" />
+      <line x1="150" y1="10" x2="150" y2="290" stroke="#E8562A" strokeWidth="1" opacity="0.35" />
+      <line x1="10" y1="150" x2="290" y2="150" stroke="#E8562A" strokeWidth="1" opacity="0.35" />
       {/* House number labels */}
       {[
         [150, 50, "I"],   [240, 80, "II"],  [270, 150, "III"], [240, 220, "IV"],
@@ -25,7 +25,7 @@ function KundliChart() {
         [110, 110, "IX"], [190, 110, "X"],  [190, 190, "XI"],  [110, 190, "XII"],
       ].map(([x, y, label]) => (
         <text key={String(label)} x={x} y={y} textAnchor="middle" dominantBaseline="central"
-          fontSize="11" fill="#A52020" fontFamily="serif" fontWeight="bold" opacity="0.9">
+          fontSize="11" fill="#E8562A" fontFamily="serif" fontWeight="bold" opacity="0.9">
           {label}
         </text>
       ))}
@@ -39,15 +39,15 @@ function KundliChart() {
         [150, 30, "☿"], [270, 150, "☽"], [150, 270, "⊕"],
       ].map(([x, y, sym]) => (
         <g key={`${x}-${y}`}>
-          <circle cx={x} cy={y} r="12" fill="rgba(165,32,32,0.12)" stroke="#A52020" strokeWidth="0.8" />
+          <circle cx={x} cy={y} r="12" fill="rgba(232,86,42,0.12)" stroke="#E8562A" strokeWidth="0.8" />
           <text x={x} y={y} textAnchor="middle" dominantBaseline="central"
-            fontSize="9" fill="#6B0E0E" fontFamily="serif">{sym}</text>
+            fontSize="9" fill="#A53A15" fontFamily="serif">{sym}</text>
         </g>
       ))}
       <defs>
         <radialGradient id="kundliGreen" cx="40%" cy="35%">
-          <stop offset="0%" stopColor="#F2C8C8" />
-          <stop offset="100%" stopColor="#A52020" />
+          <stop offset="0%" stopColor="#F5D8C8" />
+          <stop offset="100%" stopColor="#E8562A" />
         </radialGradient>
       </defs>
     </svg>
@@ -67,7 +67,7 @@ export default function KundliSection() {
       {/* Background decoration */}
       <div style={{
         position: "absolute", inset: 0,
-        backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(181,36,36,0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(165,32,32,0.08) 0%, transparent 50%)",
+        backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(240,104,48,0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(232,86,42,0.08) 0%, transparent 50%)",
         pointerEvents: "none",
       }} />
 

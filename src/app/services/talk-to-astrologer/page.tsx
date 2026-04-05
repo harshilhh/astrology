@@ -43,7 +43,7 @@ export default function TalkToAstrologerPage() {
       <main style={{ paddingTop: 80 }}>
         {/* Page header */}
         <div style={{ background: "var(--bg-cream)", padding: "60px 24px 48px", textAlign: "center", borderBottom: "3px solid var(--gold-warm)", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(165,32,32,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse at 50% 80%, rgba(232,86,42,0.12) 0%, transparent 60%)", pointerEvents: "none" }} />
           <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Main Services</span>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontWeight: 900, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 12 }}>
             <span className="gold-shimmer">Talk To Astrologer</span> Online
@@ -65,14 +65,14 @@ export default function TalkToAstrologerPage() {
                 </h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                   {["Kundali astrological analysis via phone","Current planetary transit evaluation and impacts","Direct Q&A session with Vikram Bhai Joshi","Remedial measures for life challenges","Expert online guidance for improvement"].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "12px 16px", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)" }}>
+                    <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "12px 16px", background: "var(--bg-light-yellow)", borderRadius: 0, border: "1px solid rgba(232,86,42,0.2)" }}>
                       <span style={{ color: "var(--gold-deep)", flexShrink: 0 }}>✦</span>
                       <span style={{ fontFamily: "var(--font-ui)", fontSize: "1rem", color: "var(--text-secondary)" }}>{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "40px 32px", border: "1px solid rgba(165,32,32,0.3)", textAlign: "center" }}>
+              <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "40px 32px", border: "1px solid rgba(232,86,42,0.3)", textAlign: "center" }}>
                 <div style={{ fontSize: "3.5rem", marginBottom: 20 }}>📞</div>
                 <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "1.3rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 16 }}>How To Book</h3>
                 {["1. Make online payment or call directly","2. Submit your birth details & questions","3. Receive consultation within 48 hours"].map((step) => (
@@ -96,7 +96,7 @@ export default function TalkToAstrologerPage() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
                 {specializations.map((s) => (
                   <div key={s.title} className="mystical-card" style={{ padding: "24px", borderRadius: 0, background: "var(--card-bg)" }}>
-                    <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(165,32,32,0.12)", border: "1px solid rgba(165,32,32,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", marginBottom: 14 }}>{s.icon}</div>
+                    <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(232,86,42,0.12)", border: "1px solid rgba(232,86,42,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", marginBottom: 14 }}>{s.icon}</div>
                     <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.02rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>{s.title}</h4>
                     <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.65 }}>{s.desc}</p>
                   </div>
@@ -105,7 +105,7 @@ export default function TalkToAstrologerPage() {
             </div>
 
             {/* Benefits */}
-            <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "56px 40px", border: "1px solid rgba(165,32,32,0.3)" }}>
+            <div style={{ background: "var(--bg-light-yellow)", borderRadius: 0, padding: "56px 40px", border: "1px solid rgba(232,86,42,0.3)" }}>
               <div style={{ textAlign: "center", marginBottom: 40 }}>
                 <span className="section-label" style={{ marginBottom: 16, display: "inline-block" }}>Key Benefits</span>
                 <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 700, color: "var(--text-primary)" }}>
@@ -114,7 +114,7 @@ export default function TalkToAstrologerPage() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
                 {benefits.map((b) => (
-                  <div key={b} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: "var(--card-bg)", borderRadius: 0, border: "1px solid rgba(165,32,32,0.2)" }}>
+                  <div key={b} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: "var(--card-bg)", borderRadius: 0, border: "1px solid rgba(232,86,42,0.2)" }}>
                     <span style={{ color: "var(--gold-amber)", fontSize: "0.96rem" }}>★</span>
                     <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.96rem", color: "var(--text-secondary)", fontWeight: 600 }}>{b}</span>
                   </div>

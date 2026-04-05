@@ -2,21 +2,21 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { num: 25, suffix: "+", label: "Years Experience", icon: "⭐", desc: "Vedic practice" },
-  { num: 90000, suffix: "+", label: "Consultations", icon: "🤝", desc: "Lives transformed" },
-  { num: 100, suffix: "%", label: "Privacy Guarantee", icon: "🔒", desc: "Strictly confidential" },
-  { num: 24, suffix: "/7", label: "Quick Booking", icon: "📞", desc: "Always available" },
+  { num: 25, suffix: "+", label: "Years Experience" },
+  { num: 90000, suffix: "+", label: "Consultations" },
+  { num: 5, suffix: "th Gen", label: "Astrologer" },
+  { num: 49, suffix: "★", label: "Client Rating", prefix: "4." },
 ];
 
-function StatItem({ num, suffix, label, icon, desc, active }: {
-  num:number; suffix:string; label:string; icon:string; desc:string; active:boolean;
+function StatItem({ num, suffix, label, prefix, active }: {
+  num: number; suffix: string; label: string; prefix?: string; active: boolean;
 }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!active) return;
     let current = 0;
-    const duration = 2400;
+    const duration = 2200;
     const step = (num / duration) * 16;
     const timer = setInterval(() => {
       current += step;
@@ -27,44 +27,21 @@ function StatItem({ num, suffix, label, icon, desc, active }: {
   }, [active, num]);
 
   return (
-    <div
-      className="mystical-card"
-      style={{ borderRadius:0, padding:"40px 28px", textAlign:"center", position:"relative", overflow:"hidden" }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "0 24px 60px rgba(0,0,0,0.1), 0 0 40px rgba(165,32,32,0.12)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "var(--card-shadow)";
-      }}
-    >
-      {/* Background radial glow */}
-      <div style={{ position:"absolute", inset:0, background:"radial-gradient(circle at 50% 0%, rgba(165,32,32,0.05) 0%, transparent 65%)", pointerEvents:"none" }} />
-
-      {/* Icon circle */}
-      <div style={{ width:60, height:60, margin:"0 auto 20px", position:"relative" }}>
-        <div style={{ width:60, height:60, border:"1px solid rgba(165,32,32,0.35)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"1.6rem", background:"rgba(165,32,32,0.05)", position:"relative" }}>
-          {icon}
-          {/* Corner marks */}
-          <div style={{ position:"absolute", top:-4, left:-4, width:10, height:10, borderTop:"1px solid rgba(165,32,32,0.7)", borderLeft:"1px solid rgba(165,32,32,0.7)" }} />
-          <div style={{ position:"absolute", top:-4, right:-4, width:10, height:10, borderTop:"1px solid rgba(165,32,32,0.7)", borderRight:"1px solid rgba(165,32,32,0.7)" }} />
-          <div style={{ position:"absolute", bottom:-4, left:-4, width:10, height:10, borderBottom:"1px solid rgba(165,32,32,0.7)", borderLeft:"1px solid rgba(165,32,32,0.7)" }} />
-          <div style={{ position:"absolute", bottom:-4, right:-4, width:10, height:10, borderBottom:"1px solid rgba(165,32,32,0.7)", borderRight:"1px solid rgba(165,32,32,0.7)" }} />
-        </div>
+    <div style={{
+      flex: 1, textAlign: "center", padding: "0 24px",
+    }}>
+      <div style={{
+        fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
+        fontWeight: 700, fontStyle: "italic", lineHeight: 1, color: "var(--text-primary)",
+        marginBottom: 8,
+      }}>
+        {prefix || ""}{count.toLocaleString()}{suffix}
       </div>
-
-      {/* Number */}
-      <div style={{ fontFamily:"var(--font-display)", fontSize:"clamp(2.4rem,5vw,3.4rem)", fontWeight:700, lineHeight:1, marginBottom:8 }} className="gold-text">
-        {count.toLocaleString()}<span>{suffix}</span>
-      </div>
-
-      {/* Label */}
-      <div style={{ fontFamily:"var(--font-ui)", fontSize:"0.84rem", fontWeight:700, letterSpacing:"0.22em", textTransform:"uppercase", color:"var(--text-primary)", marginBottom:6 }}>
+      <div style={{
+        fontFamily: "var(--font-ui)", fontSize: "0.62rem", fontWeight: 600,
+        letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--text-muted)",
+      }}>
         {label}
-      </div>
-      <div style={{ fontFamily:"var(--font-body)", fontSize:"0.96rem", color:"var(--text-muted)", fontStyle:"italic" }}>
-        {desc}
       </div>
     </div>
   );
@@ -84,32 +61,32 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={ref} style={{ background:"var(--bg-cream)", padding:"88px 32px", position:"relative", overflow:"hidden" }}>
-      {/* Decorative lines */}
-      <div style={{ position:"absolute", top:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(165,32,32,0.4), transparent)" }} />
-      <div style={{ position:"absolute", bottom:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(165,32,32,0.3), transparent)" }} />
-      {/* BG glow blobs */}
-      <div style={{ position:"absolute", top:-60, right:-60, width:240, height:240, borderRadius:"50%", background:"radial-gradient(circle, rgba(165,32,32,0.05) 0%, transparent 70%)", pointerEvents:"none" }} />
-      <div style={{ position:"absolute", bottom:-60, left:-60, width:200, height:200, borderRadius:"50%", background:"radial-gradient(circle, rgba(165,32,32,0.04) 0%, transparent 70%)", pointerEvents:"none" }} />
-
-      <div style={{ maxWidth:1200, margin:"0 auto", position:"relative" }}>
-        <div style={{ textAlign:"center", marginBottom:56 }}>
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16, marginBottom:16 }}>
-            <div style={{ height:1, width:48, background:"linear-gradient(90deg, transparent, rgba(165,32,32,0.6))" }} />
-            <span className="section-label">Our Track Record</span>
-            <div style={{ height:1, width:48, background:"linear-gradient(90deg, rgba(165,32,32,0.6), transparent)" }} />
+    <section ref={ref} style={{
+      background: "#fff", padding: "52px 32px",
+      borderBottom: "1px solid rgba(0,0,0,0.08)",
+    }}>
+      <div style={{
+        maxWidth: 1100, margin: "0 auto",
+        display: "flex", alignItems: "center", justifyContent: "center",
+      }} className="stats-row">
+        {stats.map((s, i) => (
+          <div key={s.label} style={{ display: "contents" }}>
+            <StatItem {...s} active={active} />
+            {i < stats.length - 1 && (
+              <div style={{
+                width: 1, height: 48, background: "rgba(0,0,0,0.1)", flexShrink: 0,
+              }} />
+            )}
           </div>
-          <h2 style={{ fontFamily:"var(--font-display)", fontSize:"clamp(1.6rem,3.5vw,2.6rem)", fontWeight:700, letterSpacing:"0.08em", color:"var(--text-primary)", marginTop:16, marginBottom:8 }}>
-            Numbers That Speak <span className="gold-text">For Themselves</span>
-          </h2>
-        </div>
-
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:2 }}>
-          {stats.map(s => (
-            <StatItem key={s.label} {...s} active={active} />
-          ))}
-        </div>
+        ))}
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .stats-row { flex-wrap: wrap !important; gap: 28px 0; }
+          .stats-row > div > div[style*="width: 1px"] { display: none; }
+        }
+      `}</style>
     </section>
   );
 }

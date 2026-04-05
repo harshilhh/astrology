@@ -26,7 +26,7 @@ export default function NewsletterSection() {
       {/* Background decoration */}
       <div style={{
         position: "absolute", inset: 0,
-        background: "radial-gradient(ellipse at 50% 50%, rgba(165,32,32,0.08) 0%, transparent 65%)",
+        background: "radial-gradient(ellipse at 50% 50%, rgba(232,86,42,0.08) 0%, transparent 65%)",
         pointerEvents: "none",
       }} />
 
@@ -38,13 +38,13 @@ export default function NewsletterSection() {
             height: 72,
             borderRadius: "50%",
             background: "white",
-            border: "2px solid rgba(165,32,32,0.35)",
+            border: "2px solid rgba(232,86,42,0.35)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontSize: "2rem",
             margin: "0 auto 24px",
-            boxShadow: "0 6px 24px rgba(165,32,32,0.12)",
+            boxShadow: "0 6px 24px rgba(232,86,42,0.12)",
           }}
         >
           📰
@@ -80,14 +80,14 @@ export default function NewsletterSection() {
           <div
             style={{
               background: "white",
-              border: "1px solid rgba(165,32,32,0.35)",
+              border: "1px solid rgba(232,86,42,0.35)",
               borderRadius: 12,
               padding: "20px 32px",
               fontFamily: "var(--font-ui)",
               fontSize: "1rem",
               fontWeight: 700,
               color: "var(--gold-deep)",
-              boxShadow: "0 4px 20px rgba(165,32,32,0.1)",
+              boxShadow: "0 4px 20px rgba(232,86,42,0.1)",
             }}
           >
             ✅ Thank you! You have been subscribed to our newsletter.
@@ -100,10 +100,10 @@ export default function NewsletterSection() {
               gap: 0,
               maxWidth: 480,
               margin: "0 auto",
-              boxShadow: "0 8px 32px rgba(165,32,32,0.12)",
+              boxShadow: "0 8px 32px rgba(232,86,42,0.12)",
               borderRadius: 10,
               overflow: "hidden",
-              border: "1px solid rgba(165,32,32,0.25)",
+              border: "1px solid rgba(232,86,42,0.25)",
             }}
           >
             <input
