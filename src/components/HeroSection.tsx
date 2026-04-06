@@ -40,15 +40,21 @@ const slides = [
 
 /* ── Service cards ── */
 const serviceCards = [
-  { name: "Vedic Kundali Reading", desc: "Unlock the secrets of your birth chart", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 3a1 1 0 0 1 1 1v3a1 1 0 0 1-2 0v-3a1 1 0 0 1 1-1z", href: "/services", tag: "Most Popular" },
-  { name: "Love & Marriage",       desc: "Kundali matching & love problem solutions", icon: "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z", href: "/services", tag: "Expert Guidance" },
-  { name: "Kundali Matching",      desc: "Sacred compatibility analysis for couples", icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z", href: "/services", tag: "Vedic Tradition" },
-  { name: "Black Magic Removal",   desc: "Powerful protection & spiritual cleansing", icon: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.83-3.23 9.36-7 10.58-3.77-1.22-7-5.75-7-10.58V6.3l7-3.12z", href: "/services", tag: "Proven Remedies" },
-  { name: "Career & Business",     desc: "Astrological guidance for success & growth", icon: "M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z", href: "/services", tag: "Life Changing" },
-  { name: "Horoscope Forecast",    desc: "Daily, monthly & yearly predictions", icon: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z", href: "/services", tag: "Daily Guidance" },
-  { name: "Vastu Consultation",    desc: "Harmonise your home & workplace energy", icon: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z", href: "/services", tag: "Sacred Space" },
-  { name: "Child Birth Prediction", desc: "Divine guidance for parenthood & family planning", icon: "M12 2C9.24 2 7 4.24 7 7c0 2.85 2.92 7.21 5 9.88 2.11-2.69 5-7 5-9.88 0-2.76-2.24-5-5-5zm0 7.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM5 20h14v2H5v-2z", href: "/services", tag: "Family Blessing" },
-  { name: "Visa & Immigration",    desc: "Astrological remedies for travel & settlement abroad", icon: "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z", href: "/services", tag: "Global Guidance" },
+  { name: "Love Problems", desc: "Expert solutions for all love-related issues", img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&h=400&fit=crop", href: "/services/love-marriage-solution" },
+  { name: "Intercaste Love Marriage", desc: "Remove family & social obstacles for love marriage", img: "/services/intercaste-love-marriage.jpg", href: "/services/love-marriage-solution" },
+  { name: "Relationship Problem", desc: "Heal broken bonds & restore harmony in relationships", img: "/services/relationship-problem.jpg", href: "/services/love-marriage-solution" },
+  { name: "Husband & Wife Problem", desc: "Restore love, trust & peace in your marriage", img: "/services/husband-wife-problem.jpg", href: "/services/love-marriage-solution" },
+  { name: "Extra Marital Affairs", desc: "Discreet Vedic guidance to restore marital fidelity", img: "/services/extra-marital-affair.jpg", href: "/services/love-marriage-solution" },
+  { name: "Divorce Problem", desc: "Prevent divorce & rebuild your marriage with Vedic remedies", img: "/services/divorce-problem.jpg", href: "/services/love-marriage-solution" },
+  { name: "Education & Jobs Problems", desc: "Overcome academic & career obstacles with astrology", img: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=600&h=400&fit=crop", href: "/services/job-career-study" },
+  { name: "Career & Financial Problems", desc: "Astrological guidance for wealth & professional growth", img: "/services/finance-problem.jpg", href: "/services/wealth-business-prediction" },
+  { name: "Health Problems", desc: "Vedic remedies for chronic health issues & well-being", img: "/services/health-problem.jpg", href: "/services" },
+  { name: "Family Problems", desc: "Resolve family disputes & restore peace at home", img: "/services/family-problem.jpg", href: "/services" },
+  { name: "Child Birth Issues", desc: "Divine guidance for parenthood & family planning", img: "/services/child-birth-issue.jpg", href: "/services/child-birth-issue" },
+  { name: "Property & Legal Disputes", desc: "Astrological solutions for property & court cases", img: "/services/property-problem.jpg", href: "/services" },
+  { name: "Black Magic Removal", desc: "Powerful protection & spiritual cleansing from negativity", img: "/services/black-magic-removal.jpg", href: "/services/black-magic-removal" },
+  { name: "Business Problem", desc: "Overcome business obstacles & achieve lasting success", img: "/services/business-problem.jpg", href: "/services/wealth-business-prediction" },
+  { name: "Visa/Immigration Problem", desc: "Astrological remedies for travel & settlement abroad", img: "/services/visa-problem.jpg", href: "/services" },
 ];
 
 const statsData = [
@@ -338,16 +344,16 @@ export default function HeroSection() {
         <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
           {serviceCards.map((card, index) => (
             <TimelineContent key={card.name} as="a" animationNum={index + 6}
-              timelineRef={sectionRef} href={card.href} style={{
+              timelineRef={sectionRef} href={card.href} className="svc-card" style={{
                 position: "relative", aspectRatio: "16/10", borderRadius: 12,
                 overflow: "hidden", display: "block", textDecoration: "none",
                 border: "1px solid rgba(232,86,42,0.12)", boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-                background: "linear-gradient(135deg, rgba(50,20,10,0.85) 0%, rgba(80,30,15,0.75) 50%, rgba(50,20,10,0.9) 100%)",
               }}>
-              <div style={{ position: "absolute", top: 12, left: 12, background: "rgba(232,86,42,0.85)", backdropFilter: "blur(8px)", color: "#fff", fontFamily: "var(--font-ui)", fontSize: "0.64rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "4px 10px", borderRadius: 4 }}>{card.tag}</div>
+              <img src={card.img} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s ease" }} className="svc-card-img" />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,5,2,0.85) 0%, rgba(10,5,2,0.4) 45%, transparent 100%)" }} />
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "14px 16px 16px" }}>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(0.88rem,1.8vw,1.1rem)", fontWeight: 700, letterSpacing: "0.05em", color: "#fff", marginBottom: 3, lineHeight: 1.2 }}>{card.name}</h3>
-                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.74rem", color: "rgba(255,255,255,0.72)", letterSpacing: "0.03em" }}>{card.desc}</p>
+                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.74rem", color: "rgba(255,255,255,0.72)", letterSpacing: "0.03em", margin: 0 }}>{card.desc}</p>
               </div>
             </TimelineContent>
           ))}
@@ -385,6 +391,7 @@ export default function HeroSection() {
         .carousel-bg {
           width: 100%; height: 100%;
           object-fit: cover;
+          object-position: 85% center;
           display: block;
         }
         .carousel-overlay {
@@ -711,6 +718,7 @@ export default function HeroSection() {
           .stats-bar-row { flex-wrap: wrap !important; gap: 24px 0; }
           .stats-bar-row > div[style*="width: 1px"] { display: none; }
         }
+        .svc-card:hover .svc-card-img { transform: scale(1.08); }
         @media (max-width: 900px) { .hero-grid { grid-template-columns: repeat(2,1fr) !important; } }
         @media (max-width: 560px) { .hero-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 768px) { .hero-carousel { height: 560px; } }
