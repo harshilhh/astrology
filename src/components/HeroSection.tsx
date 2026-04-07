@@ -648,11 +648,11 @@ export default function HeroSection() {
 
         /* Staggered entrance */
         .hero-left-anim {
-          animation: heroLeftReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+          animation: heroLeftReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
-        .hero-left-anim--1 { animation-delay: 0.2s; }
-        .hero-left-anim--2 { animation-delay: 0.4s; }
-        .hero-left-anim--3 { animation-delay: 0.6s; }
+        .hero-left-anim--1 { animation-delay: 0.15s; }
+        .hero-left-anim--2 { animation-delay: 0.3s; }
+        .hero-left-anim--3 { animation-delay: 0.45s; }
         @keyframes heroLeftReveal {
           from { opacity: 0; transform: translateY(28px); }
           to   { opacity: 1; transform: translateY(0); }
