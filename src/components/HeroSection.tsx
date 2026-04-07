@@ -60,12 +60,12 @@ const serviceCards = [
 const statsData = [
   { num: 25, suffix: "+", label: "Years Experience" },
   { num: 90000, suffix: "+", label: "Consultations" },
-  { num: 5, suffix: "th Gen", label: "Astrologer" },
-  { num: 4.9, suffix: "★", label: "Client Rating", decimals: 1 },
+  { num: 5, suffix: "th Gen", label: "Astrologer", hasSup: true },
+  { num: 4.9, suffix: "/5", label: "Client Rating", decimals: 1 },
 ];
 
-function AnimatedStat({ num, suffix, label, decimals = 0, active }: {
-  num: number; suffix: string; label: string; decimals?: number; active: boolean;
+function AnimatedStat({ num, suffix, label, decimals = 0, active, hasSup = false }: {
+  num: number; suffix: string; label: string; decimals?: number; active: boolean; hasSup?: boolean;
 }) {
   const [count, setCount] = useState(0);
 
@@ -88,13 +88,13 @@ function AnimatedStat({ num, suffix, label, decimals = 0, active }: {
     <div style={{ flex: 1, textAlign: "center", padding: "0 24px" }}>
       <div style={{
         fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
-        fontWeight: 700, fontStyle: "italic", lineHeight: 1, color: "var(--text-primary)",
+        fontWeight: 400, fontStyle: "italic", lineHeight: 1, color: "var(--text-primary)",
         marginBottom: 8,
       }}>
-        {display}{suffix}
+        {display}{hasSup ? <><sup style={{ fontSize:"0.45em", fontWeight:300, verticalAlign:"super" }}>th</sup>{" Gen"}</> : suffix}
       </div>
       <div style={{
-        fontFamily: "var(--font-ui)", fontSize: "0.62rem", fontWeight: 600,
+        fontFamily: "var(--font-ui)", fontSize: "0.62rem", fontWeight: 400,
         letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--text-muted)",
       }}>
         {label}
@@ -328,8 +328,81 @@ export default function HeroSection() {
       </section>
 
       {/* ════ SERVICE CARDS ════ */}
-      <section style={{ background: "#f5e8e0", padding: "64px 32px 96px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+      <section style={{ background: "#f5e8e0", padding: "64px 32px 96px", position: "relative", overflow: "hidden" }}>
+        {/* Animated astrology circles */}
+        <div className="svc-astro-circle svc-astro-circle--1">
+          <svg viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="1.5" opacity="0.25" />
+            <circle cx="200" cy="200" r="160" stroke="#E8562A" strokeWidth="0.8" opacity="0.18" strokeDasharray="5 7" />
+            <circle cx="200" cy="200" r="120" stroke="#E8562A" strokeWidth="1" opacity="0.2" />
+            {Array.from({ length: 12 }).map((_, i) => {
+              const a = (i * 30) * Math.PI / 180;
+              return <line key={i} x1={200 + Math.cos(a) * 120} y1={200 + Math.sin(a) * 120} x2={200 + Math.cos(a) * 190} y2={200 + Math.sin(a) * 190} stroke="#E8562A" strokeWidth="0.6" opacity="0.2" />;
+            })}
+            <circle cx="200" cy="200" r="70" stroke="#E8562A" strokeWidth="0.6" opacity="0.15" strokeDasharray="3 5" />
+            <circle cx="200" cy="200" r="30" fill="#E8562A" opacity="0.06" />
+          </svg>
+        </div>
+        <div className="svc-astro-circle svc-astro-circle--2">
+          <svg viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="1.2" opacity="0.22" />
+            <circle cx="200" cy="200" r="150" stroke="#E8562A" strokeWidth="0.8" opacity="0.16" strokeDasharray="4 6" />
+            <circle cx="200" cy="200" r="100" stroke="#E8562A" strokeWidth="1" opacity="0.2" />
+            {Array.from({ length: 12 }).map((_, i) => {
+              const a = (i * 30) * Math.PI / 180;
+              return <line key={i} x1={200 + Math.cos(a) * 100} y1={200 + Math.sin(a) * 100} x2={200 + Math.cos(a) * 190} y2={200 + Math.sin(a) * 190} stroke="#E8562A" strokeWidth="0.5" opacity="0.18" />;
+            })}
+            <circle cx="200" cy="200" r="50" stroke="#E8562A" strokeWidth="0.6" opacity="0.12" />
+            <circle cx="200" cy="200" r="20" fill="#E8562A" opacity="0.05" />
+          </svg>
+        </div>
+
+        <div className="svc-astro-circle svc-astro-circle--3">
+          <svg viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="1" opacity="0.18" />
+            <circle cx="200" cy="200" r="140" stroke="#E8562A" strokeWidth="0.6" opacity="0.12" strokeDasharray="6 5" />
+            <circle cx="200" cy="200" r="80" stroke="#E8562A" strokeWidth="0.8" opacity="0.15" />
+            {Array.from({ length: 8 }).map((_, i) => {
+              const a = (i * 45) * Math.PI / 180;
+              return <line key={i} x1={200 + Math.cos(a) * 80} y1={200 + Math.sin(a) * 80} x2={200 + Math.cos(a) * 190} y2={200 + Math.sin(a) * 190} stroke="#E8562A" strokeWidth="0.4" opacity="0.12" />;
+            })}
+            <circle cx="200" cy="200" r="30" fill="#E8562A" opacity="0.04" />
+          </svg>
+        </div>
+        <div className="svc-astro-circle svc-astro-circle--4">
+          <svg viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="0.8" opacity="0.15" />
+            <circle cx="200" cy="200" r="130" stroke="#E8562A" strokeWidth="0.5" opacity="0.1" strokeDasharray="3 7" />
+            <circle cx="200" cy="200" r="60" stroke="#E8562A" strokeWidth="0.6" opacity="0.12" />
+            <circle cx="200" cy="200" r="20" fill="#E8562A" opacity="0.04" />
+          </svg>
+        </div>
+        <div className="svc-astro-circle svc-astro-circle--6">
+          <svg viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="1" opacity="0.2" />
+            <circle cx="200" cy="200" r="145" stroke="#E8562A" strokeWidth="0.6" opacity="0.14" strokeDasharray="5 6" />
+            <circle cx="200" cy="200" r="90" stroke="#E8562A" strokeWidth="0.8" opacity="0.16" />
+            {Array.from({ length: 10 }).map((_, i) => {
+              const a = (i * 36) * Math.PI / 180;
+              return <line key={i} x1={200 + Math.cos(a) * 90} y1={200 + Math.sin(a) * 90} x2={200 + Math.cos(a) * 190} y2={200 + Math.sin(a) * 190} stroke="#E8562A" strokeWidth="0.4" opacity="0.14" />;
+            })}
+            <circle cx="200" cy="200" r="40" fill="#E8562A" opacity="0.04" />
+          </svg>
+        </div>
+        <div className="svc-astro-circle svc-astro-circle--5">
+          <svg viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="200" r="190" stroke="#E8562A" strokeWidth="1.2" opacity="0.2" />
+            <circle cx="200" cy="200" r="155" stroke="#E8562A" strokeWidth="0.5" opacity="0.14" strokeDasharray="4 8" />
+            <circle cx="200" cy="200" r="110" stroke="#E8562A" strokeWidth="0.8" opacity="0.16" />
+            {Array.from({ length: 6 }).map((_, i) => {
+              const a = (i * 60) * Math.PI / 180;
+              return <line key={i} x1={200 + Math.cos(a) * 110} y1={200 + Math.sin(a) * 110} x2={200 + Math.cos(a) * 190} y2={200 + Math.sin(a) * 190} stroke="#E8562A" strokeWidth="0.5" opacity="0.14" />;
+            })}
+            <circle cx="200" cy="200" r="50" stroke="#E8562A" strokeWidth="0.4" opacity="0.1" />
+          </svg>
+        </div>
+
+        <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <TimelineContent as="div" animationNum={5} timelineRef={sectionRef}
           style={{ textAlign: "center", marginBottom: 44 }}>
           <span className="section-label" style={{ marginBottom: 14, display: "inline-block" }}>Our Expertise</span>
@@ -640,9 +713,6 @@ export default function HeroSection() {
           margin: 16px 0 32px;
         }
         .about-simple-exp-icon {
-          width: 56px; height: 56px;
-          border-radius: 50%;
-          border: 1.5px solid rgba(232,86,42,0.25);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -719,6 +789,61 @@ export default function HeroSection() {
           .stats-bar-row > div[style*="width: 1px"] { display: none; }
         }
         .svc-card:hover .svc-card-img { transform: scale(1.08); }
+
+        .svc-astro-circle {
+          position: absolute;
+          pointer-events: none;
+        }
+        .svc-astro-circle--1 {
+          top: -10%;
+          left: -8%;
+          width: 600px;
+          height: 600px;
+          animation: svc-spin 55s linear infinite;
+        }
+        .svc-astro-circle--2 {
+          bottom: -15%;
+          right: -6%;
+          width: 420px;
+          height: 420px;
+          animation: svc-spin-rev 45s linear infinite;
+        }
+        .svc-astro-circle--3 {
+          top: 40%;
+          right: 15%;
+          width: 280px;
+          height: 280px;
+          animation: svc-spin 70s linear infinite;
+        }
+        .svc-astro-circle--4 {
+          bottom: 5%;
+          left: 10%;
+          width: 200px;
+          height: 200px;
+          animation: svc-spin-rev 50s linear infinite;
+        }
+        .svc-astro-circle--6 {
+          bottom: 30%;
+          left: -160px;
+          width: 320px;
+          height: 320px;
+          animation: svc-spin 58s linear infinite;
+        }
+        .svc-astro-circle--5 {
+          top: 15%;
+          right: -3%;
+          width: 350px;
+          height: 350px;
+          animation: svc-spin 65s linear infinite;
+        }
+        @keyframes svc-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes svc-spin-rev {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(-360deg); }
+        }
         @media (max-width: 900px) { .hero-grid { grid-template-columns: repeat(2,1fr) !important; } }
         @media (max-width: 560px) { .hero-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 768px) { .hero-carousel { height: 560px; } }
