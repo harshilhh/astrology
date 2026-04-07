@@ -196,11 +196,91 @@ function HeroCarousel() {
   );
 }
 
+/* ── Floating Celestial Particles ── */
+function CelestialParticles({ count = 18 }: { count?: number }) {
+  const particles = React.useMemo(() =>
+    Array.from({ length: count }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: 2 + Math.random() * 4,
+      delay: Math.random() * 8,
+      duration: 4 + Math.random() * 6,
+      symbol: ["✦", "✧", "⟡", "◇", "·"][Math.floor(Math.random() * 5)],
+    })), [count]);
+
+  return (
+    <div className="celestial-particles" aria-hidden="true">
+      {particles.map(p => (
+        <span key={p.id} className="celestial-particle" style={{
+          left: p.left, top: p.top,
+          fontSize: `${p.size}px`,
+          animationDelay: `${p.delay}s`,
+          animationDuration: `${p.duration}s`,
+        }}>{p.symbol}</span>
+      ))}
+    </div>
+  );
+}
+
+/* ── Scroll-aware section reveal hook ── */
+function useScrollReveal(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+}
+
+/* ── Scroll-reveal service card ── */
+function ScrollCard({ index, href, card }: { index: number; href: string; card: typeof serviceCards[0] }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <a ref={ref} href={href} className={`svc-card svc-card-scroll ${visible ? "svc-card-visible" : ""}`}
+      style={{
+        position: "relative", aspectRatio: "16/10", borderRadius: 12,
+        overflow: "hidden", display: "block", textDecoration: "none",
+        border: "1px solid rgba(232,86,42,0.12)", boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+        transitionDelay: `${(index % 3) * 0.12}s`,
+      }}>
+      <img src={card.img} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s ease" }} className="svc-card-img" />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,5,2,0.85) 0%, rgba(10,5,2,0.4) 45%, transparent 100%)" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "14px 16px 16px" }}>
+        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(0.88rem,1.8vw,1.1rem)", fontWeight: 700, letterSpacing: "0.05em", color: "#fff", marginBottom: 3, lineHeight: 1.2 }}>{card.name}</h3>
+        <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.74rem", color: "rgba(255,255,255,0.72)", letterSpacing: "0.03em", margin: 0 }}>{card.desc}</p>
+      </div>
+    </a>
+  );
+}
+
 /* ── Main Hero Section ── */
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsActive, setStatsActive] = useState(false);
+  const aboutReveal = useScrollReveal(0.2);
+  const servicesReveal = useScrollReveal(0.1);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -266,10 +346,11 @@ export default function HeroSection() {
       </div>
 
       {/* ════ ABOUT SECTION ════ */}
-      <section className="about-simple">
-        <div className="about-simple-inner">
+      <section className="about-simple" style={{ position: "relative", overflow: "hidden" }}>
+        <CelestialParticles count={14} />
+        <div ref={aboutReveal.ref} className={`about-simple-inner ${aboutReveal.visible ? "revealed" : ""}`}>
           {/* Left — Photo */}
-          <div className="about-simple-photo">
+          <div className="about-simple-photo about-photo-reveal">
             <Image
               src="/about-vikram.jpg"
               alt="Vikram Bhai Joshi — Best Ambaji Upasak Astrologer"
@@ -278,12 +359,13 @@ export default function HeroSection() {
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               priority
             />
+            <div className="about-photo-shimmer" />
           </div>
 
           {/* Right — Text */}
           <div className="about-simple-text">
-            <h2 className="about-simple-heading">
-              About <span className="about-simple-line" />
+            <h2 className="about-simple-heading text-reveal-up">
+              About <span className="about-simple-line animated-line" />
             </h2>
 
             <p className="about-simple-body">
@@ -328,7 +410,7 @@ export default function HeroSection() {
       </section>
 
       {/* ════ SERVICE CARDS ════ */}
-      <section style={{ background: "#f5e8e0", padding: "64px 32px 96px", position: "relative", overflow: "hidden" }}>
+      <section ref={servicesReveal.ref} className={`svc-section ${servicesReveal.visible ? "revealed" : ""}`} style={{ background: "#f5e8e0", padding: "64px 32px 96px", position: "relative", overflow: "hidden" }}>
         {/* Animated astrology circles */}
         <div className="svc-astro-circle svc-astro-circle--1">
           <svg viewBox="0 0 400 400" fill="none">
@@ -410,25 +492,13 @@ export default function HeroSection() {
             fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem,3.5vw,2.5rem)",
             fontWeight: 700, letterSpacing: "0.06em", color: "var(--text-primary)", marginTop: 14,
           }}>
-            Services That <span className="gold-text">Transform Lives</span>
+            Services That <span className="gold-text gold-shimmer-text">Transform Lives</span>
           </h2>
         </TimelineContent>
 
         <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
           {serviceCards.map((card, index) => (
-            <TimelineContent key={card.name} as="a" animationNum={index + 6}
-              timelineRef={sectionRef} href={card.href} className="svc-card" style={{
-                position: "relative", aspectRatio: "16/10", borderRadius: 12,
-                overflow: "hidden", display: "block", textDecoration: "none",
-                border: "1px solid rgba(232,86,42,0.12)", boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-              }}>
-              <img src={card.img} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s ease" }} className="svc-card-img" />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,5,2,0.85) 0%, rgba(10,5,2,0.4) 45%, transparent 100%)" }} />
-              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "14px 16px 16px" }}>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(0.88rem,1.8vw,1.1rem)", fontWeight: 700, letterSpacing: "0.05em", color: "#fff", marginBottom: 3, lineHeight: 1.2 }}>{card.name}</h3>
-                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.74rem", color: "rgba(255,255,255,0.72)", letterSpacing: "0.03em", margin: 0 }}>{card.desc}</p>
-              </div>
-            </TimelineContent>
+            <ScrollCard key={card.name} index={index} href={card.href} card={card} />
           ))}
         </div>
 
@@ -844,6 +914,203 @@ export default function HeroSection() {
           from { transform: rotate(0deg); }
           to { transform: rotate(-360deg); }
         }
+        /* ── Celestial Floating Particles ── */
+        .celestial-particles {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
+          overflow: hidden;
+        }
+        .celestial-particle {
+          position: absolute;
+          color: rgba(232, 86, 42, 0.25);
+          animation: particleFloat linear infinite;
+          will-change: transform, opacity;
+        }
+        @keyframes particleFloat {
+          0% { transform: translateY(0) scale(1); opacity: 0; }
+          15% { opacity: 0.6; }
+          50% { transform: translateY(-40px) scale(1.2); opacity: 0.3; }
+          85% { opacity: 0.6; }
+          100% { transform: translateY(0) scale(1); opacity: 0; }
+        }
+
+        /* ── Photo reveal + shimmer ── */
+        .about-photo-reveal {
+          position: relative;
+          overflow: hidden;
+        }
+        .about-photo-shimmer {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(232, 86, 42, 0.08) 45%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(232, 86, 42, 0.08) 55%,
+            transparent 60%
+          );
+          animation: photoShimmer 4s ease-in-out infinite;
+          pointer-events: none;
+        }
+        @keyframes photoShimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+
+        /* ── Section reveal animations ── */
+        .about-simple-inner {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .about-simple-inner.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .about-simple-inner.revealed .about-simple-photo {
+          animation: photoSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+        .about-simple-inner.revealed .about-simple-text {
+          animation: textSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+        @keyframes photoSlideIn {
+          from { opacity: 0; transform: translateX(-30px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes textSlideIn {
+          from { opacity: 0; transform: translateX(30px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ── Heading line animation ── */
+        .animated-line {
+          animation: lineGrow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+          transform-origin: left center;
+        }
+        @keyframes lineGrow {
+          from { width: 0; opacity: 0; }
+          to { width: 60px; opacity: 1; }
+        }
+
+        /* ── Gold shimmer text ── */
+        .gold-shimmer-text {
+          background: linear-gradient(
+            110deg,
+            #E8562A 0%,
+            #E8562A 40%,
+            #F5D6A8 50%,
+            #E8562A 60%,
+            #E8562A 100%
+          );
+          background-size: 200% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: goldShimmer 3s ease-in-out infinite;
+        }
+        @keyframes goldShimmer {
+          0% { background-position: 100% 50%; }
+          100% { background-position: -100% 50%; }
+        }
+
+        /* ── Service card scroll reveal ── */
+        .svc-card-scroll {
+          opacity: 0;
+          transform: translateY(40px) scale(0.96);
+          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .svc-card-scroll.svc-card-visible {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        /* ── Service card enhanced hover ── */
+        .svc-card {
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+        }
+        .svc-card:hover {
+          transform: translateY(-6px) !important;
+          box-shadow: 0 16px 48px rgba(232, 86, 42, 0.18), 0 4px 12px rgba(0,0,0,0.1) !important;
+        }
+        .svc-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          background: linear-gradient(135deg, rgba(232,86,42,0.15) 0%, transparent 60%);
+          pointer-events: none;
+          z-index: 2;
+        }
+        .svc-card:hover::after {
+          opacity: 1;
+        }
+
+        /* ── Services section reveal ── */
+        .svc-section .hero-grid {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.8s ease 0.2s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .svc-section.revealed .hero-grid {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* ── Stats bar entrance ── */
+        .stats-bar-row > div {
+          animation: statFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .stats-bar-row > div:nth-child(1) { animation-delay: 0.1s; }
+        .stats-bar-row > div:nth-child(2) { animation-delay: 0.15s; }
+        .stats-bar-row > div:nth-child(3) { animation-delay: 0.2s; }
+        .stats-bar-row > div:nth-child(4) { animation-delay: 0.25s; }
+        .stats-bar-row > div:nth-child(5) { animation-delay: 0.3s; }
+        .stats-bar-row > div:nth-child(6) { animation-delay: 0.35s; }
+        .stats-bar-row > div:nth-child(7) { animation-delay: 0.4s; }
+        @keyframes statFadeUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Button glow pulse ── */
+        .btn-gold {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-gold:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 32px rgba(232, 86, 42, 0.3);
+        }
+        .btn-gold::before {
+          content: '';
+          position: absolute;
+          top: 0; left: -100%;
+          width: 100%; height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: left 0.5s ease;
+        }
+        .btn-gold:hover::before {
+          left: 100%;
+        }
+
+        /* ── Marquee hover pause ── */
+        .hero-marquee-wrapper:hover .hero-marquee-track {
+          animation-play-state: paused;
+        }
+        .hero-marquee-item {
+          transition: color 0.3s ease;
+        }
+        .hero-marquee-item:hover {
+          color: #E8562A !important;
+        }
+
         @media (max-width: 900px) { .hero-grid { grid-template-columns: repeat(2,1fr) !important; } }
         @media (max-width: 560px) { .hero-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 768px) { .hero-carousel { height: 560px; } }

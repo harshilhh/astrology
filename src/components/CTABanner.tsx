@@ -1,8 +1,24 @@
 "use client";
+import { useRef, useState, useEffect } from "react";
+
 const PHONE = "+919737168423";
 const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 export default function CTABanner() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section id="contact" className="cta-golden">
       {/* Background image */}
@@ -136,28 +152,28 @@ export default function CTABanner() {
       <div className="cta-golden-line cta-golden-line--top" />
       <div className="cta-golden-line cta-golden-line--bot" />
 
-      <div style={{ maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div ref={contentRef} className={`cta-golden-content ${visible ? "cta-visible" : ""}`} style={{ maxWidth: 700, margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Eyebrow */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 28 }}>
+        <div className="cta-anim cta-anim--1" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 28 }}>
           <div className="cta-golden-hl" />
           <span className="cta-golden-label">⚡ Limited Free Consultations Available</span>
           <div className="cta-golden-hl cta-golden-hl--r" />
         </div>
 
-        <h2 className="cta-golden-title">
+        <h2 className="cta-golden-title cta-anim cta-anim--2">
           Your Solution <span className="cta-golden-accent">Awaits You</span>
         </h2>
 
-        <p className="cta-golden-body">
+        <p className="cta-golden-body cta-anim cta-anim--3">
           Stop suffering in silence. 90,000+ people have already transformed their lives with Vikram Bhai Joshi&apos;s guidance. Your situation — no matter how difficult — has a solution.
         </p>
 
-        <p className="cta-golden-quote">
+        <p className="cta-golden-quote cta-anim cta-anim--4">
           &ldquo;Call Us For Immediate Solution — Give A New Look To Your Life.&rdquo;
         </p>
 
         {/* Buttons */}
-        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 36 }} className="cta-btns">
+        <div className="cta-anim cta-anim--5" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 36 }}>
           <a href={`tel:${PHONE}`} className="cta-golden-btn cta-golden-btn--outline">
             📞 Call Now — FREE
           </a>
@@ -167,7 +183,7 @@ export default function CTABanner() {
         </div>
 
         {/* Trust badges */}
-        <div style={{ display: "flex", gap: 24, justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="cta-anim cta-anim--6" style={{ display: "flex", gap: 24, justifyContent: "center", flexWrap: "wrap" }}>
           {["🔒 100% Private", "⚡ Instant Reply", "🌙 Available Now", "❤️ Free First Call"].map(item => (
             <span key={item} className="cta-golden-badge">
               {item}
@@ -342,6 +358,25 @@ export default function CTABanner() {
           text-transform: uppercase;
           color: rgba(59,26,10,0.45);
           font-weight: 700;
+        }
+
+        /* ── Scroll-triggered staggered reveal ── */
+        .cta-anim {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cta-anim--1 { transition-delay: 0s; }
+        .cta-anim--2 { transition-delay: 0.12s; }
+        .cta-anim--3 { transition-delay: 0.24s; }
+        .cta-anim--4 { transition-delay: 0.36s; }
+        .cta-anim--5 { transition-delay: 0.48s; }
+        .cta-anim--6 { transition-delay: 0.6s; }
+
+        .cta-visible .cta-anim {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         @media (max-width: 600px) {

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const reviews = [
   {
@@ -76,19 +76,33 @@ function ReviewCard({ r }: { r: typeof reviews[0] }) {
 }
 
 export default function ReviewsCarousel() {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section className="rmc-section">
       <div className="rmc-bg-glow rmc-bg-glow--l" />
       <div className="rmc-bg-glow rmc-bg-glow--r" />
 
       {/* Header */}
-      <div className="rmc-header">
-        <div className="rmc-header-lines">
+      <div ref={headerRef} className={`rmc-header ${visible ? "rmc-header-visible" : ""}`}>
+        <div className="rmc-header-lines rmc-h-anim rmc-h-anim--1">
           <div className="rmc-hl" />
           <span className="section-label">Client Testimonials</span>
           <div className="rmc-hl rmc-hl--r" />
         </div>
-        <h2 className="rmc-title">
+        <h2 className="rmc-title rmc-h-anim rmc-h-anim--2">
           Voices of <span className="gold-text">Trust & Transformation</span>
         </h2>
       </div>
@@ -294,6 +308,18 @@ export default function ReviewsCarousel() {
           .rmc-section { padding: 56px 0; }
           .rmc-card { width: 290px; padding: 22px 18px 16px; }
           .rmc-fade { width: 40px; }
+        }
+        .rmc-h-anim {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .rmc-h-anim--1 { transition-delay: 0s; }
+        .rmc-h-anim--2 { transition-delay: 0.15s; }
+        .rmc-header-visible .rmc-h-anim {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
     </section>
