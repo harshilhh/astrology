@@ -262,7 +262,7 @@ function ScrollCard({ index, href, card }: { index: number; href: string; card: 
         position: "relative", aspectRatio: "16/10", borderRadius: 12,
         overflow: "hidden", display: "block", textDecoration: "none",
         border: "1px solid rgba(232,86,42,0.12)", boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-        transitionDelay: `${(index % 3) * 0.12}s`,
+        transitionDelay: `${(index % 3) * 0.16}s`,
       }}>
       <img src={card.img} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s ease" }} className="svc-card-img" />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,5,2,0.85) 0%, rgba(10,5,2,0.4) 45%, transparent 100%)" }} />
@@ -648,11 +648,11 @@ export default function HeroSection() {
 
         /* Staggered entrance */
         .hero-left-anim {
-          animation: heroLeftReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+          animation: heroLeftReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
-        .hero-left-anim--1 { animation-delay: 0.15s; }
-        .hero-left-anim--2 { animation-delay: 0.3s; }
-        .hero-left-anim--3 { animation-delay: 0.45s; }
+        .hero-left-anim--1 { animation-delay: 0.2s; }
+        .hero-left-anim--2 { animation-delay: 0.4s; }
+        .hero-left-anim--3 { animation-delay: 0.6s; }
         @keyframes heroLeftReveal {
           from { opacity: 0; transform: translateY(28px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -952,7 +952,7 @@ export default function HeroSection() {
             rgba(232, 86, 42, 0.08) 55%,
             transparent 60%
           );
-          animation: photoShimmer 4s ease-in-out infinite;
+          animation: photoShimmer 5s ease-in-out infinite;
           pointer-events: none;
         }
         @keyframes photoShimmer {
@@ -964,17 +964,17 @@ export default function HeroSection() {
         .about-simple-inner {
           opacity: 0;
           transform: translateY(40px);
-          transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .about-simple-inner.revealed {
           opacity: 1;
           transform: translateY(0);
         }
         .about-simple-inner.revealed .about-simple-photo {
-          animation: photoSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+          animation: photoSlideIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
         }
         .about-simple-inner.revealed .about-simple-text {
-          animation: textSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+          animation: textSlideIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
         }
         @keyframes photoSlideIn {
           from { opacity: 0; transform: translateX(-30px); }
@@ -1020,8 +1020,8 @@ export default function HeroSection() {
         .svc-card-scroll {
           opacity: 0;
           transform: translateY(40px) scale(0.96);
-          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .svc-card-scroll.svc-card-visible {
           opacity: 1;
@@ -1064,15 +1064,15 @@ export default function HeroSection() {
 
         /* ── Stats bar entrance ── */
         .stats-bar-row > div {
-          animation: statFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+          animation: statFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
-        .stats-bar-row > div:nth-child(1) { animation-delay: 0.1s; }
-        .stats-bar-row > div:nth-child(2) { animation-delay: 0.15s; }
-        .stats-bar-row > div:nth-child(3) { animation-delay: 0.2s; }
-        .stats-bar-row > div:nth-child(4) { animation-delay: 0.25s; }
-        .stats-bar-row > div:nth-child(5) { animation-delay: 0.3s; }
-        .stats-bar-row > div:nth-child(6) { animation-delay: 0.35s; }
-        .stats-bar-row > div:nth-child(7) { animation-delay: 0.4s; }
+        .stats-bar-row > div:nth-child(1) { animation-delay: 0.15s; }
+        .stats-bar-row > div:nth-child(2) { animation-delay: 0.2s; }
+        .stats-bar-row > div:nth-child(3) { animation-delay: 0.26s; }
+        .stats-bar-row > div:nth-child(4) { animation-delay: 0.33s; }
+        .stats-bar-row > div:nth-child(5) { animation-delay: 0.4s; }
+        .stats-bar-row > div:nth-child(6) { animation-delay: 0.46s; }
+        .stats-bar-row > div:nth-child(7) { animation-delay: 0.52s; }
         @keyframes statFadeUp {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }

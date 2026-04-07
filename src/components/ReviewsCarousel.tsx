@@ -312,11 +312,11 @@ export default function ReviewsCarousel() {
         .rmc-h-anim {
           opacity: 0;
           transform: translateY(30px);
-          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .rmc-h-anim--1 { transition-delay: 0s; }
-        .rmc-h-anim--2 { transition-delay: 0.15s; }
+        .rmc-h-anim--2 { transition-delay: 0.2s; }
         .rmc-header-visible .rmc-h-anim {
           opacity: 1;
           transform: translateY(0);

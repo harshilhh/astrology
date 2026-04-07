@@ -364,15 +364,15 @@ export default function CTABanner() {
         .cta-anim {
           opacity: 0;
           transform: translateY(30px);
-          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .cta-anim--1 { transition-delay: 0s; }
-        .cta-anim--2 { transition-delay: 0.12s; }
-        .cta-anim--3 { transition-delay: 0.24s; }
-        .cta-anim--4 { transition-delay: 0.36s; }
-        .cta-anim--5 { transition-delay: 0.48s; }
-        .cta-anim--6 { transition-delay: 0.6s; }
+        .cta-anim--2 { transition-delay: 0.15s; }
+        .cta-anim--3 { transition-delay: 0.3s; }
+        .cta-anim--4 { transition-delay: 0.45s; }
+        .cta-anim--5 { transition-delay: 0.6s; }
+        .cta-anim--6 { transition-delay: 0.75s; }
 
         .cta-visible .cta-anim {
           opacity: 1;

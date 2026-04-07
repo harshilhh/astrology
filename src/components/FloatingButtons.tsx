@@ -1,7 +1,18 @@
+"use client";
+import { useState, useEffect } from "react";
+
 const PHONE = "+919737168423";
 const WA_LINK = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
 
 export default function FloatingButtons() {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       {/* WhatsApp */}
@@ -18,6 +29,47 @@ export default function FloatingButtons() {
         </svg>
       </a>
 
+      {/* Scroll to top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="scroll-top-btn"
+        aria-label="Scroll to top"
+        title="Back to top"
+        style={{
+          opacity: showTop ? 1 : 0,
+          pointerEvents: showTop ? "auto" : "none",
+          transform: showTop ? "translateY(0)" : "translateY(20px)",
+        }}
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 15l-6-6-6 6" />
+        </svg>
+      </button>
+
+      <style>{`
+        .scroll-top-btn {
+          position: fixed;
+          bottom: 100px;
+          right: 24px;
+          z-index: 999;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: #E8562A;
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 16px rgba(232,86,42,0.35);
+          transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+        }
+        .scroll-top-btn:hover {
+          background: #D14A22;
+          transform: translateY(-3px) !important;
+          box-shadow: 0 6px 24px rgba(232,86,42,0.45);
+        }
+      `}</style>
     </>
   );
 }
