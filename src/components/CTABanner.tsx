@@ -198,7 +198,7 @@ export default function CTABanner() {
           overflow: hidden;
           padding: 100px 32px;
           text-align: center;
-          background: var(--bg-light-yellow);
+          background: linear-gradient(180deg, var(--bg-light-yellow) 0%, var(--bg-pale-yellow) 50%, var(--bg-light-yellow) 100%);
         }
         .cta-golden-bgimg {
           position: absolute; inset: 0;

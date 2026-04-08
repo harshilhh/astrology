@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import AboutHero from "@/components/AboutHero";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import HeroBanner from "@/components/HeroBanner";
 import PrivacySection from "@/components/PrivacySection";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
@@ -20,7 +19,6 @@ export default function AboutPage() {
       <main style={{ paddingTop: 80 }}>
         <AboutHero />
         <WhyChooseUs />
-        <HeroBanner />
         <PrivacySection />
         <CTABanner />
       </main>
