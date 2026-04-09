@@ -198,6 +198,7 @@ export default function Navbar() {
           align-items: center;
           gap: 0;
           flex: 1;
+          justify-content: center;
         }
         .nav-link-item {
           position: relative;
@@ -232,7 +233,6 @@ export default function Navbar() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          margin-left: auto;
           padding: 10px 24px;
           font-family: var(--font-ui);
           font-size: 0.68rem;

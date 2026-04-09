@@ -1,110 +1,541 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const testimonials = [
-  { name: "Priya Sharma", location: "Delhi", stars: 5, text: "I had lost all hope of getting my ex back after 2 years of separation. Vikram Bhai's guidance and remedies worked like a miracle. We are happily together now. I can never thank him enough.", service: "Ex Love Back", avatar: "P" },
+  { name: "Priya Sharma", location: "Delhi", stars: 5, text: "I had lost all hope of getting my ex back after 2 years of separation. Vikram Bhai\u2019s guidance and remedies worked like a miracle. We are happily together now. I can never thank him enough.", service: "Ex Love Back", avatar: "P" },
   { name: "Rajesh Kumar", location: "Mumbai", stars: 5, text: "My business had been in loss for 3 years and I was drowning in debt. After the consultation and performing the remedies, things turned around within a month. Highly recommended!", service: "Business & Finance", avatar: "R" },
-  { name: "Anjali Singh", location: "Jaipur", stars: 5, text: "Our parents were completely against our intercaste marriage. Vikram Bhai helped us in every way — our parents gave their blessings within weeks! It felt nothing short of a miracle.", service: "Love Marriage", avatar: "A" },
+  { name: "Anjali Singh", location: "Jaipur", stars: 5, text: "Our parents were completely against our intercaste marriage. Vikram Bhai helped us in every way \u2014 our parents gave their blessings within weeks! It felt nothing short of a miracle.", service: "Love Marriage", avatar: "A" },
   { name: "Mohan Verma", location: "Pune", stars: 5, text: "Constant fights with my wife had pushed us to the edge of divorce. After just two sessions with Vikram Bhai, there was a visible change. Our home is peaceful again. God bless him.", service: "Husband-Wife Dispute", avatar: "M" },
   { name: "Sunita Patel", location: "Ahmedabad", stars: 5, text: "I was suffering from severe black magic for years with unexplained problems in every area of life. Vikram Bhai identified it instantly and removed it. I feel like a new person now.", service: "Black Magic Removal", avatar: "S" },
   { name: "Vikram Rao", location: "Hyderabad", stars: 5, text: "I was stuck in my career for 5 years with no growth. After following the astrological remedies, I got a promotion and a 40% salary hike within 3 months. Incredible experience.", service: "Career Growth", avatar: "V" },
 ];
 
+const reviews = [
+  { name: "Deepika Nair", location: "Kochi", stars: 5, text: "Was struggling with health issues for over a year with no medical explanation. Vikram Bhai identified planetary afflictions and the remedies brought visible improvement within weeks.", service: "Health Problems", avatar: "D" },
+  { name: "Arun Mehta", location: "Chandigarh", stars: 5, text: "My visa had been rejected 3 times. After following Vikram Bhai\u2019s guidance and performing the recommended puja, my 4th application was approved. Now settled in Canada.", service: "Visa & Immigration", avatar: "A" },
+  { name: "Kavita Desai", location: "Surat", stars: 5, text: "We were trying for a baby for 6 years. Doctors had given up hope. Vikram Bhai\u2019s remedies changed everything \u2014 we are now blessed with a beautiful daughter.", service: "Child Birth Issue", avatar: "K" },
+  { name: "Ravi Shankar", location: "Lucknow", stars: 5, text: "Property dispute with my brother had been going on for 8 years. Within 3 months of following the remedies, we reached an amicable settlement. Truly grateful.", service: "Property Disputes", avatar: "R" },
+  { name: "Neha Gupta", location: "Indore", stars: 5, text: "My husband was having an extra-marital affair and I was devastated. Vikram Bhai\u2019s remedies brought my husband back and our relationship is stronger than ever.", service: "Extra Marital Affairs", avatar: "N" },
+  { name: "Sanjay Tiwari", location: "Patna", stars: 5, text: "Failed in competitive exams twice despite hard work. After the consultation and wearing the recommended gemstone, I cleared UPSC in my third attempt.", service: "Education & Career", avatar: "S" },
+  { name: "Pooja Reddy", location: "Bangalore", stars: 5, text: "My in-laws were making my life miserable. After Vikram Bhai\u2019s intervention, there has been a complete change in their attitude. My home is finally peaceful.", service: "In-Laws Problem", avatar: "P" },
+  { name: "Amit Joshi", location: "Nagpur", stars: 5, text: "I was going through severe depression and nothing was helping. The astrological remedies along with Vikram Bhai\u2019s counseling gave me a new perspective on life. Forever thankful.", service: "Mental Health", avatar: "A" },
+];
+
 export default function TestimonialsSection() {
   const [active, setActive] = useState(0);
+
+  const next = useCallback(() => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   const t = testimonials[active];
 
   return (
-    <section id="testimonials" style={{ background:"var(--bg-cream)", padding:"96px 32px", position:"relative", overflow:"hidden" }}>
-      {/* BG atmosphere */}
-      <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 40%, rgba(232,86,42,0.04) 0%, transparent 60%)", pointerEvents:"none" }} />
-      <div style={{ position:"absolute", top:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(232,86,42,0.4), transparent)" }} />
-      <div style={{ position:"absolute", bottom:0, left:0, right:0, height:1, background:"linear-gradient(90deg, transparent, rgba(232,86,42,0.25), transparent)" }} />
+    <section className="tsc">
+      {/* BG */}
+      <div className="tsc-bg" />
+      <div className="tsc-border-top" />
+      <div className="tsc-border-bottom" />
 
-      {/* Decorative mandala left */}
-      <div style={{ position:"absolute", left:"-6%", top:"50%", transform:"translateY(-50%)", width:"min(300px,38vw)", height:"min(300px,38vw)", pointerEvents:"none" }}>
-        <svg viewBox="0 0 200 200" fill="none" style={{ width:"100%", height:"100%", opacity:0.06 }}>
-          <circle cx="100" cy="100" r="96" stroke="#E8562A" strokeWidth="0.8"/>
-          <circle cx="100" cy="100" r="72" stroke="#E8562A" strokeWidth="0.5" strokeDasharray="3 5"/>
-          <circle cx="100" cy="100" r="48" stroke="#F06830" strokeWidth="0.8"/>
-          <circle cx="100" cy="100" r="24" stroke="#E8562A" strokeWidth="0.5"/>
-          {Array.from({length:8}).map((_,i)=>{const a=(i*45)*Math.PI/180;return <line key={i} x1={100+Math.cos(a)*24} y1={100+Math.sin(a)*24} x2={100+Math.cos(a)*96} y2={100+Math.sin(a)*96} stroke="#E8562A" strokeWidth="0.4"/>;} )}
-        </svg>
-      </div>
-
-      <div style={{ maxWidth:1100, margin:"0 auto", position:"relative", zIndex:1 }}>
+      <div className="tsc-inner">
         {/* Header */}
-        <div style={{ textAlign:"center", marginBottom:72 }}>
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16, marginBottom:16 }}>
-            <div style={{ height:1, width:48, background:"linear-gradient(90deg, transparent, rgba(232,86,42,0.6))" }} />
+        <div className="tsc-header">
+          <div className="tsc-header-lines">
+            <div className="tsc-header-line tsc-header-line--left" />
             <span className="section-label">Client Testimonials</span>
-            <div style={{ height:1, width:48, background:"linear-gradient(90deg, rgba(232,86,42,0.6), transparent)" }} />
+            <div className="tsc-header-line tsc-header-line--right" />
           </div>
-          <h2 style={{ fontFamily:"var(--font-display)", fontSize:"clamp(1.8rem,4.5vw,3rem)", fontWeight:700, letterSpacing:"0.08em", lineHeight:1.2, marginBottom:8, marginTop:16, color:"var(--text-primary)" }}>
+          <h2 className="tsc-title">
             Real People, <span className="gold-text">Real Transformations</span>
           </h2>
         </div>
 
-        {/* Featured testimonial */}
-        <div style={{ background:"var(--card-bg)", border:"1px solid rgba(232,86,42,0.25)", padding:"clamp(28px,5vw,52px)", marginBottom:40, position:"relative", maxWidth:800, margin:"0 auto 40px", boxShadow:"0 20px 60px rgba(0,0,0,0.07), 0 0 40px rgba(232,86,42,0.06)" }}>
-          {/* Art Deco corners */}
-          <div style={{ position:"absolute", top:0, left:0, width:32, height:32, borderTop:"1px solid rgba(232,86,42,0.6)", borderLeft:"1px solid rgba(232,86,42,0.6)" }} />
-          <div style={{ position:"absolute", top:0, right:0, width:32, height:32, borderTop:"1px solid rgba(232,86,42,0.6)", borderRight:"1px solid rgba(232,86,42,0.6)" }} />
-          <div style={{ position:"absolute", bottom:0, left:0, width:32, height:32, borderBottom:"1px solid rgba(232,86,42,0.6)", borderLeft:"1px solid rgba(232,86,42,0.6)" }} />
-          <div style={{ position:"absolute", bottom:0, right:0, width:32, height:32, borderBottom:"1px solid rgba(232,86,42,0.6)", borderRight:"1px solid rgba(232,86,42,0.6)" }} />
-          {/* Green top bar */}
-          <div style={{ position:"absolute", top:0, left:0, right:0, height:2, background:"linear-gradient(90deg, transparent, #F06830, transparent)" }} />
+        {/* Carousel */}
+        <div className="tsc-carousel">
+          {testimonials.map((item, i) => (
+            <div
+              key={item.name}
+              className={`tsc-slide ${i === active ? "tsc-slide--active" : ""}`}
+            >
+              <div className="tsc-card">
+                {/* Top accent stripe */}
+                <div className="tsc-card-stripe" />
 
-          {/* Large quote */}
-          <div style={{ fontFamily:"Georgia, serif", fontSize:"4rem", color:"rgba(232,86,42,0.15)", lineHeight:1, userSelect:"none", marginBottom:8 }}>&ldquo;</div>
+                {/* Corner decos */}
+                <div className="tsc-corner tsc-corner--tl" />
+                <div className="tsc-corner tsc-corner--tr" />
+                <div className="tsc-corner tsc-corner--bl" />
+                <div className="tsc-corner tsc-corner--br" />
 
-          <p style={{ fontFamily:"var(--font-body)", fontSize:"clamp(1.05rem,2vw,1.25rem)", color:"var(--text-secondary)", lineHeight:1.9, fontStyle:"italic", marginBottom:28 }}>
-            {t.text}
-          </p>
+                {/* Quote mark */}
+                <div className="tsc-quote-mark">&ldquo;</div>
 
-          <div style={{ height:1, background:"linear-gradient(90deg, transparent, rgba(232,86,42,0.35), transparent)", marginBottom:24 }} />
+                {/* Text */}
+                <p className="tsc-text">{item.text}</p>
 
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:12 }}>
-            <div style={{ display:"flex", alignItems:"center", gap:14 }}>
-              <div style={{ width:48, height:48, border:"1px solid rgba(232,86,42,0.4)", background:"radial-gradient(circle, rgba(232,86,42,0.15) 0%, rgba(232,86,42,0.05) 100%)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"var(--font-display)", fontSize:"1.2rem", fontWeight:700, color:"var(--gold-warm)" }}>
-                {t.avatar}
-              </div>
-              <div>
-                <div style={{ fontFamily:"var(--font-display)", fontSize:"1.02rem", fontWeight:700, letterSpacing:"0.08em", color:"var(--text-primary)", marginBottom:3 }}>{t.name}</div>
-                <div style={{ fontFamily:"var(--font-ui)", fontSize:"0.76rem", color:"rgba(232,86,42,0.65)", letterSpacing:"0.15em", textTransform:"uppercase" }}>{t.location} · {t.service}</div>
+                {/* Separator */}
+                <div className="tsc-separator" />
+
+                {/* Author row */}
+                <div className="tsc-author">
+                  <div className="tsc-avatar">{item.avatar}</div>
+                  <div className="tsc-author-info">
+                    <span className="tsc-name">{item.name}</span>
+                    <span className="tsc-meta">{item.location} &middot; {item.service}</span>
+                  </div>
+                  <div className="tsc-stars">
+                    {"★".repeat(item.stars)}
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="stars-rating" style={{ fontSize:"1.1rem" }}>{"★".repeat(t.stars)}</div>
-          </div>
-        </div>
-
-        {/* Dot navigation */}
-        <div style={{ display:"flex", justifyContent:"center", gap:10, marginBottom:48 }}>
-          {testimonials.map((_, i) => (
-            <button key={i} onClick={() => setActive(i)} style={{ width: i===active ? 36 : 10, height:10, background: i===active ? "linear-gradient(90deg, #A53A15, #F06830)" : "rgba(232,86,42,0.25)", border:"none", cursor:"pointer", transition:"all 0.3s", padding:0 }} />
           ))}
         </div>
 
-        {/* Mini testimonial grid */}
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))", gap:2 }}>
-          {testimonials.map((t, i) => (
-            <button key={t.name} onClick={() => setActive(i)} style={{ padding:"22px", textAlign:"left", border: i===active ? "1px solid rgba(232,86,42,0.5)" : "1px solid rgba(232,86,42,0.12)", cursor:"pointer", background: i===active ? "rgba(232,86,42,0.06)" : "var(--card-bg)", width:"100%", transition:"all 0.25s ease", outline:"none" }}>
-              <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12 }}>
-                <div style={{ width:34, height:34, border:"1px solid rgba(232,86,42,0.35)", background:"rgba(232,86,42,0.08)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"var(--font-display)", fontSize:"0.96rem", fontWeight:700, color:"var(--gold-warm)", flexShrink:0 }}>
-                  {t.avatar}
-                </div>
-                <div className="stars-rating" style={{ fontSize:"1.04rem" }}>{"★".repeat(t.stars)}</div>
-              </div>
-              <p style={{ fontFamily:"var(--font-body)", fontSize:"1rem", color:"var(--text-muted)", lineHeight:1.65, marginBottom:10, fontStyle:"italic", display:"-webkit-box", WebkitLineClamp:3, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
-                {t.text}
-              </p>
-              <div style={{ fontFamily:"var(--font-ui)", fontSize:"0.76rem", color:"rgba(232,86,42,0.65)", letterSpacing:"0.12em", textTransform:"uppercase" }}>
-                — {t.name}, {t.location}
-              </div>
-            </button>
+        {/* Dots */}
+        <div className="tsc-dots">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              className={`tsc-dot ${i === active ? "tsc-dot--active" : ""}`}
+              onClick={() => setActive(i)}
+              aria-label={`Testimonial ${i + 1}`}
+            />
           ))}
         </div>
       </div>
+
+      {/* ── Reviews Grid ── */}
+      <div className="tsc-reviews-wrap">
+        <div className="tsc-reviews-divider">
+          <div className="tsc-reviews-divider-line" />
+          <span className="tsc-reviews-divider-label">More Reviews</span>
+          <div className="tsc-reviews-divider-line" />
+        </div>
+
+        <div className="tsc-reviews-grid">
+          {reviews.map((r, i) => (
+            <div key={r.name} className="tsc-review" style={{ animationDelay: `${i * 0.06}s` }}>
+              {/* Fire stripe */}
+              <div className="tsc-review-stripe" />
+              {/* Ghost number */}
+              <span className="tsc-review-ghost">{String(i + 1).padStart(2, "0")}</span>
+
+              <div className="tsc-review-stars">{"★".repeat(r.stars)}</div>
+              <p className="tsc-review-text">{r.text}</p>
+              <div className="tsc-review-footer">
+                <div className="tsc-review-avatar">{r.avatar}</div>
+                <div className="tsc-review-info">
+                  <span className="tsc-review-name">{r.name}</span>
+                  <span className="tsc-review-meta">{r.location} &middot; {r.service}</span>
+                </div>
+              </div>
+              {/* Corner deco */}
+              <div className="tsc-review-corner" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        .tsc {
+          position: relative;
+          padding: 96px 32px;
+          overflow: hidden;
+        }
+        .tsc-bg {
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-pale-yellow) 30%, var(--bg-pale-yellow) 70%, var(--bg-cream) 100%);
+          pointer-events: none;
+        }
+        .tsc-border-top {
+          position: absolute; top: 0; left: 0; right: 0; height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(232,86,42,0.3), transparent);
+        }
+        .tsc-border-bottom {
+          position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(232,86,42,0.2), transparent);
+        }
+
+        .tsc-inner {
+          max-width: 780px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* Header */
+        .tsc-header {
+          text-align: center;
+          margin-bottom: 52px;
+        }
+        .tsc-header-lines {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          margin-bottom: 16px;
+        }
+        .tsc-header-line { height: 1px; width: 48px; }
+        .tsc-header-line--left { background: linear-gradient(90deg, transparent, rgba(232,86,42,0.6)); }
+        .tsc-header-line--right { background: linear-gradient(90deg, rgba(232,86,42,0.6), transparent); }
+        .tsc-title {
+          font-family: var(--font-display);
+          font-size: clamp(1.6rem, 4vw, 2.4rem);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          line-height: 1.2;
+          margin-top: 16px;
+          color: var(--text-primary);
+        }
+
+        /* Carousel */
+        .tsc-carousel {
+          position: relative;
+          min-height: 320px;
+        }
+        .tsc-slide {
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          transform: translateX(40px);
+          pointer-events: none;
+          transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.23,1,0.32,1);
+        }
+        .tsc-slide--active {
+          opacity: 1;
+          transform: translateX(0);
+          pointer-events: all;
+          position: relative;
+        }
+
+        /* Card */
+        .tsc-card {
+          position: relative;
+          background: var(--card-bg);
+          border: 1px solid rgba(232,86,42,0.18);
+          padding: 48px 52px 44px;
+          box-shadow:
+            0 20px 60px rgba(0,0,0,0.06),
+            0 0 40px rgba(232,86,42,0.04);
+          overflow: hidden;
+        }
+
+        .tsc-card-stripe {
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, var(--gold-warm), var(--gold-glow), var(--gold-warm), transparent);
+        }
+
+        /* Corners */
+        .tsc-corner {
+          position: absolute;
+          width: 28px; height: 28px;
+        }
+        .tsc-corner--tl { top: 0; left: 0; border-top: 1px solid rgba(232,86,42,0.45); border-left: 1px solid rgba(232,86,42,0.45); }
+        .tsc-corner--tr { top: 0; right: 0; border-top: 1px solid rgba(232,86,42,0.45); border-right: 1px solid rgba(232,86,42,0.45); }
+        .tsc-corner--bl { bottom: 0; left: 0; border-bottom: 1px solid rgba(232,86,42,0.45); border-left: 1px solid rgba(232,86,42,0.45); }
+        .tsc-corner--br { bottom: 0; right: 0; border-bottom: 1px solid rgba(232,86,42,0.45); border-right: 1px solid rgba(232,86,42,0.45); }
+
+        /* Quote mark */
+        .tsc-quote-mark {
+          font-family: Georgia, serif;
+          font-size: 4.5rem;
+          color: rgba(232,86,42,0.12);
+          line-height: 1;
+          user-select: none;
+          margin-bottom: 4px;
+        }
+
+        /* Text */
+        .tsc-text {
+          font-family: var(--font-body);
+          font-size: clamp(1.05rem, 2vw, 1.25rem);
+          color: var(--text-secondary);
+          line-height: 1.95;
+          font-style: italic;
+          margin: 0 0 32px;
+        }
+
+        /* Separator */
+        .tsc-separator {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(232,86,42,0.3), transparent);
+          margin-bottom: 28px;
+        }
+
+        /* Author row */
+        .tsc-author {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+        .tsc-avatar {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-display);
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: var(--gold-warm);
+          background: rgba(232,86,42,0.07);
+          border: 1px solid rgba(232,86,42,0.25);
+          flex-shrink: 0;
+        }
+        .tsc-author-info {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+        }
+        .tsc-name {
+          font-family: var(--font-ui);
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--text-primary);
+        }
+        .tsc-meta {
+          font-family: var(--font-ui);
+          font-size: 0.62rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--gold-warm);
+          opacity: 0.65;
+        }
+        .tsc-stars {
+          margin-left: auto;
+          font-size: 1.2rem;
+          color: var(--gold-warm);
+          letter-spacing: 0.08em;
+        }
+
+        /* Dots */
+        .tsc-dots {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 32px;
+        }
+        .tsc-dot {
+          width: 10px;
+          height: 10px;
+          border: none;
+          background: rgba(232,86,42,0.18);
+          cursor: pointer;
+          transition: all 0.35s ease;
+          padding: 0;
+        }
+        .tsc-dot--active {
+          width: 36px;
+          background: linear-gradient(90deg, #A53A15, var(--gold-glow));
+        }
+        .tsc-dot:hover:not(.tsc-dot--active) {
+          background: rgba(232,86,42,0.35);
+        }
+
+        /* ── Reviews Grid ── */
+        .tsc-reviews-wrap {
+          max-width: 1200px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+          padding: 0 0;
+        }
+        .tsc-reviews-divider {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin: 56px 0 36px;
+        }
+        .tsc-reviews-divider-line {
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(232,86,42,0.2), transparent);
+        }
+        .tsc-reviews-divider-label {
+          font-family: var(--font-ui);
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          white-space: nowrap;
+        }
+
+        .tsc-reviews-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 14px;
+        }
+
+        .tsc-review {
+          position: relative;
+          background: var(--card-bg);
+          border: 1px solid var(--card-border);
+          padding: 24px 22px 22px 24px;
+          overflow: hidden;
+          transition: transform 0.4s cubic-bezier(0.23,1,0.32,1),
+                      box-shadow 0.4s cubic-bezier(0.23,1,0.32,1),
+                      border-color 0.35s ease;
+          animation: tscReviewIn 0.5s ease both;
+        }
+        .tsc-review:hover {
+          transform: translateY(-4px);
+          border-color: rgba(232,86,42,0.3);
+          box-shadow: 0 14px 36px rgba(0,0,0,0.06), 0 0 28px rgba(232,86,42,0.04);
+        }
+
+        .tsc-review-stripe {
+          position: absolute;
+          top: 0; left: 0; bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, var(--gold-warm), var(--gold-glow));
+          opacity: 0.2;
+          transition: opacity 0.35s ease, width 0.35s ease, box-shadow 0.35s ease;
+        }
+        .tsc-review:hover .tsc-review-stripe {
+          opacity: 1;
+          width: 4px;
+          box-shadow: 3px 0 16px rgba(232,86,42,0.18);
+        }
+
+        .tsc-review-ghost {
+          position: absolute;
+          top: -4px; right: 6px;
+          font-family: var(--font-display);
+          font-size: 3.5rem;
+          font-weight: 900;
+          line-height: 1;
+          letter-spacing: -0.04em;
+          color: rgba(232,86,42,0.035);
+          pointer-events: none;
+          user-select: none;
+          transition: color 0.3s, transform 0.4s cubic-bezier(0.23,1,0.32,1);
+        }
+        .tsc-review:hover .tsc-review-ghost {
+          color: rgba(232,86,42,0.07);
+          transform: translateY(-3px);
+        }
+
+        .tsc-review-stars {
+          font-size: 0.9rem;
+          color: var(--gold-warm);
+          letter-spacing: 0.06em;
+          margin-bottom: 12px;
+        }
+
+        .tsc-review-text {
+          font-family: var(--font-body);
+          font-size: 0.92rem;
+          color: var(--text-secondary);
+          line-height: 1.75;
+          font-style: italic;
+          margin: 0 0 18px;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .tsc-review-footer {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .tsc-review-avatar {
+          width: 34px;
+          height: 34px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-display);
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--gold-warm);
+          background: rgba(232,86,42,0.06);
+          border: 1px solid rgba(232,86,42,0.2);
+          flex-shrink: 0;
+        }
+        .tsc-review-info {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+          min-width: 0;
+        }
+        .tsc-review-name {
+          font-family: var(--font-ui);
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--text-primary);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .tsc-review-meta {
+          font-family: var(--font-ui);
+          font-size: 0.55rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--gold-warm);
+          opacity: 0.6;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .tsc-review-corner {
+          position: absolute;
+          bottom: 0; right: 0;
+          width: 18px; height: 18px;
+          border-bottom: 1px solid rgba(232,86,42,0.1);
+          border-right: 1px solid rgba(232,86,42,0.1);
+          transition: border-color 0.3s, width 0.3s, height 0.3s;
+        }
+        .tsc-review:hover .tsc-review-corner {
+          width: 26px; height: 26px;
+          border-color: rgba(232,86,42,0.35);
+        }
+
+        @keyframes tscReviewIn {
+          from { opacity: 0; transform: translateY(14px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+          .tsc-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+          .tsc { padding: 64px 20px; }
+          .tsc-card { padding: 32px 28px 28px; }
+          .tsc-quote-mark { font-size: 3.5rem; }
+          .tsc-carousel { min-height: 360px; }
+          .tsc-author { flex-wrap: wrap; }
+          .tsc-stars { margin-left: 0; width: 100%; margin-top: 6px; }
+        }
+        @media (max-width: 520px) {
+          .tsc-card { padding: 28px 20px 24px; }
+          .tsc-carousel { min-height: 400px; }
+          .tsc-corner { width: 20px; height: 20px; }
+          .tsc-reviews-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </section>
   );
 }
